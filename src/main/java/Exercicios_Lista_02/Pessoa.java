@@ -56,6 +56,7 @@ public class Pessoa {
         this.peso = peso;
     }
 
+    //funções do exercicio 4
     public void envelhecer(){
         setIdade(getIdade()+1);
     }
