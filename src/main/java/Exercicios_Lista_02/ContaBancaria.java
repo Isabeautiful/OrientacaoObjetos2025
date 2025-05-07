@@ -24,7 +24,6 @@ public class ContaBancaria {
     }
 
     public void setNumero_conta(String numero_conta) {
-        //TODO: verificação do codigo da conta bancaria
         this.numero_conta = numero_conta;
     }
 
