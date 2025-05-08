@@ -29,6 +29,27 @@ class ProdutoTest {
     }
 
     @Test
+    void deveAdicionarEstoque(){
+        Produto produto = new Produto("P1", 1, 0, "Teste");
+        produto.adicionarEstoque(1);
+        assertEquals(1,produto.getQuantidade_estoque());
+    }
+
+    @Test
+    void deveRemoverEstoque(){
+        Produto produto = new Produto("P1", 1, 1, "Teste");
+        produto.removerEstoque(1);
+        assertEquals(0,produto.getQuantidade_estoque());
+    }
+
+    @Test
+    void deveAplicarDesconto(){
+        Produto produto = new Produto("P1", 100, 0, "Teste");
+        produto.aplicarDesconto(10);
+        assertEquals(90,produto.getPreco());
+    }
+
+    @Test
     void deveLancarExcecaoPrecoInvalido(){
         try {
             Produto produto = new Produto("P1", 1, 1, "Teste");
@@ -49,4 +70,7 @@ class ProdutoTest {
             assertEquals("Erro: Argumento quantidade_estoque (int) não pode ser negativo", e.getMessage());
         }
     }
+
+    //TODO: Lançar Exceções: Adicionar Estoque invalido, 3RE Invalidos, 2 AplicarDescontoInvalidos
+
 }

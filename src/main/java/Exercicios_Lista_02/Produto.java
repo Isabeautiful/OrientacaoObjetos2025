@@ -54,6 +54,32 @@ public class Produto {
     }
 
     //funções do exercicio 05
+    public void adicionarEstoque(int quantidade){
+        if(quantidade < 0){
+            throw new IllegalArgumentException("Erro: Argumento quantidade (int) deve ser positivo");
+        }
+        setQuantidade_estoque(getQuantidade_estoque() + quantidade);
+    }
 
+    public void removerEstoque(int quantidade){
+        if(quantidade < 0){
+            throw new IllegalArgumentException("Erro: Argumento quantidade (int) deve ser positivo");
+        }
+        if(quantidade > this.quantidade_estoque){
+            throw new IllegalArgumentException("Erro: Argumento quantidade não pode ser maior que o atributo estoque");
+        }
+        if(this.quantidade_estoque == 0){
+            throw new IllegalArgumentException("Erro: Não há Produtos em estoque para serem removidos");
+        }
+        setQuantidade_estoque(getQuantidade_estoque() - quantidade);
+    }
+
+    public void aplicarDesconto(double percentual){
+        if(percentual < 0 || percentual >= 100){
+            throw new IllegalArgumentException("Erro: Argumento percentual invalido");
+        }
+        double desconto = this.preco * (percentual/100);
+        setPreco(getPreco() - desconto);
+    }
 
 }
