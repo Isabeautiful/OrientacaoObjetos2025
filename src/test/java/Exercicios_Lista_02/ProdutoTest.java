@@ -71,6 +71,76 @@ class ProdutoTest {
         }
     }
 
-    //TODO: Lançar Exceções: Adicionar Estoque invalido, 3RE Invalidos, 2 AplicarDescontoInvalidos
+    @Test
+    void deveLancarExcecaoAdicionarEstoqueInvalido(){
+        try {
+            Produto produto = new Produto("P1", 1, 1, "Teste");
+            produto.adicionarEstoque(-1);
+            fail();
+        }
+        catch (IllegalArgumentException e ){
+            assertEquals("Erro: Argumento quantidade (int) deve ser positivo", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveLancarExcecaoRemoverEstoqueInvalidoNegativo(){
+        try{
+            Produto produto = new Produto("P1", 1, 1, "Teste");
+            produto.removerEstoque(-1);
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Erro: Argumento quantidade (int) deve ser positivo", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveLancarExcecaoRemoverEstoqueInvalidoForaDeEstoque(){
+        try{
+            Produto produto = new Produto("P1", 1, 0, "Teste");
+            produto.removerEstoque(1);
+            fail();
+        }
+        catch (IllegalArgumentException e) {
+            assertEquals("Erro: Argumento quantidade não pode ser maior que o atributo estoque", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveLancarExcecaoRemoverEstoqueInvalidoQuantidadeSuperiorEstoque(){
+        try{
+            Produto produto = new Produto("P1", 1, 1, "Teste");
+            produto.removerEstoque(2);
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Erro: Argumento quantidade não pode ser maior que o atributo estoque", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveLancarExcecaoAplicarDescontoInvalidoLimiteInferior(){
+        try {
+            Produto produto = new Produto("P1", 1, 1, "Teste");
+            produto.aplicarDesconto(-1);
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Erro: Argumento percentual invalido", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveLancarExcecaoAplicarDescontoInvalidoLimiteSuperior(){
+        try{
+            Produto produto = new Produto("P1", 1, 1, "Teste");
+            produto.aplicarDesconto(101);
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Erro: Argumento percentual invalido", e.getMessage());
+        }
+    }
 
 }
