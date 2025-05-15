@@ -14,6 +14,9 @@ public class Pessoa {
     }
 
     public void setNome(String nome) {
+        if(nome.trim().equals("")){
+            throw new IllegalArgumentException("Erro: Nome (string) invalida");
+        }
         this.nome = nome;
     }
 
