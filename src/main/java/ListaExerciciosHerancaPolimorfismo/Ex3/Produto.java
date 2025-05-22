@@ -31,6 +31,11 @@ public abstract class Produto {
         this.precoBase = precoBase;
     }
 
-    public abstract double calcularPreco();
+    public abstract float getDescontoPorcentagem();
+
+    public double calcularPreco(){
+        return getPrecoBase() - (this.getDescontoPorcentagem()/100 * getPrecoBase());
+    }
+
 
 }

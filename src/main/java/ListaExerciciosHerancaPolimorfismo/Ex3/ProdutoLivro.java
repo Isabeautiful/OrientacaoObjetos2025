@@ -1,12 +1,12 @@
 package ListaExerciciosHerancaPolimorfismo.Ex3;
 
-public class ProdutoEletronico extends Produto {
-
-    public ProdutoEletronico(String nome, double precoBase){
+public class ProdutoLivro extends Produto {
+    public ProdutoLivro(String nome, double precoBase){
         super(nome, precoBase);
     }
 
+    @Override
     public float getDescontoPorcentagem() {
-        return 0.1f;
+        return 0.05f;
     }
 }
