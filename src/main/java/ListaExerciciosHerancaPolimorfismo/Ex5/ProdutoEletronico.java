@@ -19,6 +19,7 @@ public class ProdutoEletronico extends Produto {
 
     public void recalcularEstoque(){
         //TODO: tratamento de erro quantidade comprada superior ao estoque
+        //TODO: Não deve haver venda caso não exista estoque suficiente. Deve baixar o estoque do produto após a venda.
         setQuantidadeEstoque(getQuantidadeEstoque() - getQuantidadeComprada());
     }
     public float calcularPreco(){
