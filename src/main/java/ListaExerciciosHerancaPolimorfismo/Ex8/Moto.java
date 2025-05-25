@@ -5,7 +5,7 @@ public class Moto extends Veiculo {
         super(marca, modelo, precoBase);
     }
 
-    public double getFator(){
+    public double getFatorFixo(){
         return 1.15;
     }
 }

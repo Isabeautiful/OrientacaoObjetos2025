@@ -2,9 +2,9 @@ package ListaExerciciosHerancaPolimorfismo.Ex3;
 
 public abstract class Produto {
     private String nome;
-    private double precoBase;
+    private float precoBase;
 
-    public Produto(String nome, double precoBase){
+    public Produto(String nome, float precoBase){
         setNome(nome);
         setPrecoBase(precoBase);
     }
@@ -14,17 +14,17 @@ public abstract class Produto {
     }
 
     public void setNome(String nome) {
-        if(nome.trim().equals("")){
+        if(nome.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: Argumento nome nao pode ser uma string vazia");
         }
         this.nome = nome;
     }
 
-    public double getPrecoBase() {
+    public float getPrecoBase() {
         return this.precoBase;
     }
 
-    public void setPrecoBase(double precoBase) {
+    public void setPrecoBase(float precoBase) {
         if(precoBase <= 0){
             throw new IllegalArgumentException("Erro: Argumento Preco Base deve ser positivo");
         }
@@ -34,7 +34,7 @@ public abstract class Produto {
     public abstract float getDescontoPorcentagem();
 
     public double calcularPreco(){
-        return getPrecoBase() - (this.getDescontoPorcentagem()/100 * getPrecoBase());
+        return getPrecoBase() - (this.getDescontoPorcentagem() * getPrecoBase());
     }
 
 

@@ -44,10 +44,10 @@ public abstract class Veiculo {
         this.precoBase = precoBase;
     }
 
-    public abstract double getFator();
+    public abstract double getFatorFixo();
 
     public double calcularCusto(){
-        return getPrecoBase() * getFator();
+        return getPrecoBase() * getFatorFixo();
     }
 
 }
