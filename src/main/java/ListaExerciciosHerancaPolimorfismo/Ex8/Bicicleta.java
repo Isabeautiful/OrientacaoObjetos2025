@@ -5,7 +5,7 @@ public class Bicicleta extends Veiculo {
         super(marca, modelo, precoBase);
     }
 
-    public double getFatorFixo(){
-        return 1.05;
+    public float getFatorFixo(){
+        return 1.05f;
     }
 }
