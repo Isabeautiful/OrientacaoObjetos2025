@@ -2,13 +2,13 @@ package ListaExerciciosHerancaPolimorfismo.Ex6;
 
 public abstract class ContaBancaria {
     private String numeroConta;
-    private double saldo;
+    private float saldo;
     private String titular;
 
-    public ContaBancaria(String numeroConta, String titular, double saldoInicial){
+    public ContaBancaria(String numeroConta, String titular, float saldoInicial){
         setNumeroConta(numeroConta);
         setTitular(titular);
-        setSaldo(saldo);
+        setSaldo(saldoInicial);
     }
 
     public String getNumeroConta() {
@@ -17,19 +17,16 @@ public abstract class ContaBancaria {
 
     public void setNumeroConta(String numeroConta) {
         if(numeroConta.trim().isEmpty()){
-            throw new IllegalArgumentException("Erro: Argumento numeroConta nao pode ser negativo");
+            throw new IllegalArgumentException("Erro: Argumento numeroConta nao pode ser uma string vazia");
         }
         this.numeroConta = numeroConta;
     }
 
-    public double getSaldo() {
+    public float getSaldo() {
         return this.saldo;
     }
 
-    public void setSaldo(double saldo) {
-        if(saldo < 0){
-            throw new IllegalArgumentException("Erro: Argumento saldo nao pode ser negativo");
-        }
+    public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
 
@@ -44,16 +41,16 @@ public abstract class ContaBancaria {
         this.titular = titular;
     }
 
-    public void sacar(double valor) {
+    public void sacar(float valor) {
         if(valor <= 0){
             throw new IllegalArgumentException("Erro: Argumento valor deve ser positivo");
         }
-        if(valor > getSaldo()){ ///TODO: Pode ter saldo negativo?
+        if(valor > getSaldo()){
             throw new IllegalArgumentException("Erro: Saldo insuficiente para saque");
         }
         setSaldo(getSaldo() - valor);
     }
 
-    public abstract void depositar(double valor);
+    public abstract void depositar(float valor);
     public abstract void calcularJuros();
 }
