@@ -10,6 +10,7 @@ public abstract class Voo {
         setOrigem(origem);
         setDestino(destino);
         setDataVoo(dataVoo);
+        setDistancia(distancia);
     }
 
     public String getOrigem() {
@@ -17,7 +18,7 @@ public abstract class Voo {
     }
 
     public void setOrigem(String origem) {
-        if(origem.trim().equals("")){
+        if(origem.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: Argumento Origem nao pode ser uma string vazia");
         }
         this.origem = origem;
@@ -39,7 +40,7 @@ public abstract class Voo {
     }
 
     public void setDestino(String destino) {
-        if(destino.trim().equals("")){
+        if(destino.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: Argumento destino nao pode ser uma string vazia");
         }
         this.destino = destino;
@@ -50,12 +51,11 @@ public abstract class Voo {
     }
 
     public void setDataVoo(String dataVoo) {
-        if(dataVoo.trim().equals("")){
+        if(dataVoo.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: Argumento dataVoo nao pode ser uma string vazia");
         }
         this.dataVoo = dataVoo;
     }
 
     public abstract float calcularPreco();
-    //TODO: casos de teste
 }

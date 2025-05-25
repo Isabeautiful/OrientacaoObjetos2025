@@ -9,6 +9,8 @@ class ProdutoLivroTest {
     @Test
     void deveInstanciarProdutoLivro(){
         ProdutoLivro produtoLivro = new ProdutoLivro("P1", 1);
+        assertEquals("P1", produtoLivro.getNome());
+        assertEquals(1, produtoLivro.getPrecoBase());
     }
 
     @Test

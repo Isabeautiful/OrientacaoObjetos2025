@@ -1,18 +1,18 @@
 package ListaExerciciosHerancaPolimorfismo.Ex4;
 
 public class VooDomestico extends Voo {
-    private int fatorPreco;
+    private float fatorPreco;
 
-    public VooDomestico(String origem, float distancia, String destino, String dataVoo, int fatorPreco){
+    public VooDomestico(String origem, float distancia, String destino, String dataVoo, float fatorPreco){
         super(origem, distancia, destino, dataVoo);
         setFatorPreco(fatorPreco);
     }
 
-    public int getFatorPreco() {
+    public float getFatorPreco() {
         return this.fatorPreco;
     }
 
-    public void setFatorPreco(int fatorPreco) {
+    public void setFatorPreco(float fatorPreco) {
         if(fatorPreco <= 0){
             throw new IllegalArgumentException("Erro: Argumento FatorPreco deve ser positivo");
         }
@@ -23,5 +23,4 @@ public class VooDomestico extends Voo {
         return getDistancia() * getFatorPreco();
     }
 
-    //TODO: casos de teste
 }
