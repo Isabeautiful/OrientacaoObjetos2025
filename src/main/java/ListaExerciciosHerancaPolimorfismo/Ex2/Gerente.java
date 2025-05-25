@@ -1,6 +1,6 @@
-package ListaExerciciosHerancaPolimorfismo;
+package ListaExerciciosHerancaPolimorfismo.Ex2;
 
-public class Gerente extends Funcionario{
+public class Gerente extends Funcionario {
     private int bonus; //valor fixo
 
     public Gerente(double salarioMensal, int bonus){

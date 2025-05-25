@@ -1,4 +1,4 @@
-package ListaExerciciosHerancaPolimorfismo;
+package ListaExerciciosHerancaPolimorfismo.Ex2;
 
 public class Diretor extends Funcionario {
     private double valorParticipacao; //depende dos lucros da empresa

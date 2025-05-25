@@ -1,6 +1,6 @@
-package ListaExerciciosHerancaPolimorfismo;
+package ListaExerciciosHerancaPolimorfismo.Ex2;
 
-public class FuncionarioComum extends Funcionario{
+public class FuncionarioComum extends Funcionario {
 
     public FuncionarioComum(double salarioMensal){
         super(salarioMensal);

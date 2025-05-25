@@ -44,13 +44,19 @@ public abstract class Produto {
         this.quantidadeEstoque = quantidadeEstoque;
     }
 
-    //TODO: alterar esse metodo talvez?
-    public String situacaoEstoque(){
-        if(this.quantidadeEstoque == 0){
-            return "Fora de Estoque";
+    public void removerEstoque(int quantidade){
+        if(quantidade <=0 ){
+            throw new IllegalArgumentException("Erro: Argumento quantidade deve ser positiva");
         }
-        return "Tem quantidade em estoque";
+        if(quantidade > this.quantidadeEstoque){
+            throw new IllegalArgumentException("Quantidade em estoque insuficiente");
+        }
+        setQuantidadeEstoque(getQuantidadeEstoque() - quantidade);
     }
 
+    public void Comprar(){
+        removerEstoque(getQuantidadeComprada());
+    }
+    public abstract int getQuantidadeComprada();
     public abstract float calcularPreco();
 }

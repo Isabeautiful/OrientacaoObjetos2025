@@ -1,4 +1,4 @@
-package ListaExerciciosHerancaPolimorfismo;
+package ListaExerciciosHerancaPolimorfismo.Ex2;
 
 public abstract class Funcionario {
     private double salarioMensal; //valor fixo!!

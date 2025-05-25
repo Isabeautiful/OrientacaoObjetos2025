@@ -1,5 +1,26 @@
 package ListaExerciciosHerancaPolimorfismo.Ex5;
 
-public class ProdutoAlimento {
-    //TODO: Na classe ProdutoAlimento, o preço unitário é o preço por quilo e o cálculo do preço total leva em consideração a quantidade em quilos.
+public class ProdutoAlimento extends Produto {
+    private float quantidadeKG;
+
+    public ProdutoAlimento(String nome, float precoUnitario, int quantidadeEstoque, float quantidadeKG){
+        super(nome, precoUnitario, quantidadeEstoque);
+        setQuantidadeKG(quantidadeKG);
+        this.Comprar();
+    }
+
+    public int getQuantidadeComprada() {
+        return (int) (this.quantidadeKG * 1000);
+    }
+
+    public void setQuantidadeKG(float quantidadeKG) {
+        if(quantidadeKG <= 0) {
+            throw new IllegalArgumentException("Erro: Argumento Quantidade de quilos deve ser positiva");
+        }
+        this.quantidadeKG = quantidadeKG;
+    }
+
+    public float calcularPreco(){
+        return getPrecoUnitario() * getQuantidadeComprada();
+    }
 }

@@ -1,4 +1,4 @@
-package ListaExerciciosHerancaPolimorfismo;
+package ListaExerciciosHerancaPolimorfismo.Ex2;
 
 import org.junit.jupiter.api.Test;
 
