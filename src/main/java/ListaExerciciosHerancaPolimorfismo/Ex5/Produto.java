@@ -38,7 +38,7 @@ public abstract class Produto {
     }
 
     public void setQuantidadeEstoque(int quantidadeEstoque) {
-        if(quantidadeEstoque < 0){
+        if(quantidadeEstoque <0){
             throw new IllegalArgumentException("Erro: Argumento QuantidadeEstoque deve ser positivo ou nulo");
         }
         this.quantidadeEstoque = quantidadeEstoque;
@@ -49,7 +49,7 @@ public abstract class Produto {
             throw new IllegalArgumentException("Erro: Argumento quantidade deve ser positiva");
         }
         if(quantidade > this.quantidadeEstoque){
-            throw new IllegalArgumentException("Quantidade em estoque insuficiente");
+            throw new IllegalArgumentException("Erro: Quantidade em estoque insuficiente");
         }
         setQuantidadeEstoque(getQuantidadeEstoque() - quantidade);
     }

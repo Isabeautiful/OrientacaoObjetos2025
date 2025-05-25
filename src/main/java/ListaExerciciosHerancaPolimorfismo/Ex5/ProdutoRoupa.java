@@ -4,10 +4,10 @@ public class ProdutoRoupa extends Produto {
     private int quantidadeComprada;
     private int desconto;
 
-    public ProdutoRoupa(String nome, float precoUnitario, int quantidadeEstoque, int quantidadeComprada){
+    public ProdutoRoupa(String nome, float precoUnitario, int quantidadeEstoque){
         super(nome, precoUnitario, quantidadeEstoque);
-        setQuantidadeComprada(quantidadeComprada);
-        this.Comprar();
+        this.desconto = 0;
+        this.quantidadeComprada = 0;
     }
 
     public int getQuantidadeComprada() {
@@ -15,8 +15,8 @@ public class ProdutoRoupa extends Produto {
     }
 
     public void setQuantidadeComprada(int quantidadeComprada) {
-        if(quantidadeComprada <= 0){
-            throw new IllegalArgumentException("Erro: Argumento QuantidadeComprada deve ser positivo");
+        if(quantidadeComprada < 0 || quantidadeComprada > getQuantidadeEstoque()){
+            throw new IllegalArgumentException("Erro: Argumento QuantidadeComprada deve ser positivo ou menor do que a quantidade em estoque");
         }
         this.quantidadeComprada = quantidadeComprada;
     }
@@ -26,15 +26,15 @@ public class ProdutoRoupa extends Produto {
     }
 
     public void setDesconto(int desconto) {
-        if (desconto < 0 || desconto > 100) {
+        if (desconto <= 0 || desconto > 100) {
             throw new IllegalArgumentException("Erro: Percentual de desconto deve estar entre 0 e 100");
         }
         this.desconto = desconto;
     }
 
     public float calcularPreco(){
-        float precoTotal = getPrecoUnitario() * quantidadeComprada;
-        return precoTotal * ((float) desconto /100);
+        float precoTotal = getPrecoUnitario() * getQuantidadeComprada();
+        return getPrecoUnitario() + precoTotal * ((float) getDesconto() /100);
     }
 
 }

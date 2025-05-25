@@ -3,10 +3,9 @@ package ListaExerciciosHerancaPolimorfismo.Ex5;
 public class ProdutoEletronico extends Produto {
     private int quantidadeComprada;
 
-    public ProdutoEletronico(String nome, float precoUnitario, int quantidadeEstoque, int quantidadeComprada){
+    public ProdutoEletronico(String nome, float precoUnitario, int quantidadeEstoque){
         super(nome, precoUnitario, quantidadeEstoque);
-        setQuantidadeComprada(quantidadeComprada);
-        this.Comprar();
+        this.quantidadeComprada = 0;
     }
 
     public int getQuantidadeComprada() {
@@ -14,8 +13,8 @@ public class ProdutoEletronico extends Produto {
     }
 
     public void setQuantidadeComprada(int quantidadeComprada) {
-        if(quantidadeComprada <= 0){
-            throw new IllegalArgumentException("Erro: Argumento QuantidadeComprada deve ser positivo");
+        if(quantidadeComprada < 0 || quantidadeComprada > getQuantidadeEstoque()){
+            throw new IllegalArgumentException("Erro: Argumento QuantidadeComprada deve ser positivo ou menor do que a quantidade em estoque");
         }
         this.quantidadeComprada = quantidadeComprada;
     }
