@@ -2,12 +2,9 @@ package ExercicioRelampagoSurpresaPI;
 
 public class Professor extends Pessoa {
 
-    public Professor (String nome, Escolaridade escolaridade){
-        super(nome);
+    public Professor (String nome, Escolaridade escolaridade, Cidade cidade){
+        super(nome, cidade);
         setEscolaridade(escolaridade);
     }
 
-    public String getNomeGraduacao(){
-        return getEscolaridade().getGraduacao();
-    }
 }

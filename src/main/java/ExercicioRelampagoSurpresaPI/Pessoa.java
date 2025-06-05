@@ -3,10 +3,12 @@ package ExercicioRelampagoSurpresaPI;
 public class Pessoa {
     private String nome;
     private Escolaridade escolaridade;
+    private Cidade cidade;
 
-    public Pessoa (String nome){
+    public Pessoa (String nome, Cidade cidade){
         setNome(nome);
         this.escolaridade = null;
+        setCidade(cidade);
     }
 
     public String getNome() {
@@ -26,5 +28,35 @@ public class Pessoa {
 
     public void setEscolaridade(Escolaridade escolaridade) {
         this.escolaridade = escolaridade;
+    }
+
+    public Cidade getCidade() {
+        return this.cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        if(cidade == null){
+            throw new IllegalArgumentException("Erro: argumento cidade nao pode ser nulo");
+        }
+        this.cidade = cidade;
+    }
+
+    public String getNomeGraduacao(){
+        if(this.escolaridade == null){
+            return "Pessoa sem escolaridade";
+        }
+        return getEscolaridade().getGraduacao();
+    }
+
+    public String getNaturalidade(){
+        return getCidade().getNome() + " " + getCidade().getEstado().getNome();
+    }
+
+    public String getNomeCidade(){
+        return getCidade().getNome();
+    }
+
+    public String getNomeEstado(){
+        return getCidade().getEstado().getNome();
     }
 }

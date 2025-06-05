@@ -8,7 +8,9 @@ class PessoaTest {
 
     @Test
     void deveInstanciarPessoa(){
-        Pessoa pessoa = new Pessoa("P1");
+        Estado estado = new Estado("E1");
+        Cidade cidade = new Cidade("C1", estado);
+        Pessoa pessoa = new Pessoa("P1", cidade);
         assertEquals("P1", pessoa.getNome());
         assertNull(pessoa.getEscolaridade());
     }
@@ -16,7 +18,9 @@ class PessoaTest {
     @Test
     void deveLancarExcecaoNomeInvalido(){
         try{
-            Pessoa pessoa = new Pessoa("");
+            Estado estado = new Estado("E1");
+            Cidade cidade = new Cidade("C1", estado);
+            Pessoa pessoa = new Pessoa("", cidade);
             fail();
         }
         catch (IllegalArgumentException e){
