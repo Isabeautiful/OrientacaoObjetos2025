@@ -4,6 +4,7 @@ public class Curso {
     String nome;
     TipoEnsino tipoEnsino;
     Professor coordenador;
+    Escola escola;
 
     public Curso(String nome, TipoEnsino tipoEnsino){
         setNome(nome);
@@ -52,5 +53,20 @@ public class Curso {
 
     public String getNomeTipoEnsino(){
         return getTipoEnsino().getNome();
+    }
+
+    public Escola getEscola() {
+        return this.escola;
+    }
+
+    public void setEscola(Escola escola) {
+        this.escola = escola;
+    }
+
+    public String getNomeEscola(){
+        if(this.escola == null){
+            throw new IllegalArgumentException("Essa escola nao oferece esse curso");
+        }
+        return getEscola().getNome();
     }
 }
