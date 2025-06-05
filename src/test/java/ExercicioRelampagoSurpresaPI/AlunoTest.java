@@ -19,7 +19,8 @@ class AlunoTest {
     void deveAlterarCurso(){
         Estado estado = new Estado("E1");
         Cidade cidade = new Cidade("C1", estado);
-        Curso curso = new Curso("Curso1");
+        TipoEnsino tipoEnsino = new TipoEnsino("TE1");
+        Curso curso = new Curso("Curso1", tipoEnsino);
         Aluno aluno = new Aluno("A1", cidade);
         aluno.setCurso(curso);
         assertEquals("Curso1", aluno.getNomeCurso());
