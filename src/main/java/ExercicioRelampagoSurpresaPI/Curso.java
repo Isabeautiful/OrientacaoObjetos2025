@@ -6,9 +6,10 @@ public class Curso {
     Professor coordenador;
     Escola escola;
 
-    public Curso(String nome, TipoEnsino tipoEnsino){
+    public Curso(String nome, TipoEnsino tipoEnsino, Escola escola){
         setNome(nome);
         setTipoEnsino(tipoEnsino);
+        setEscola(escola);
     }
 
     public String getNome() {
@@ -16,7 +17,6 @@ public class Curso {
     }
 
     public void setNome(String nome) {
-        //TODO: casos de teste
         if(nome.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: argumento nome nao pode ser vazio");
         }
@@ -28,7 +28,6 @@ public class Curso {
     }
 
     public void setTipoEnsino(TipoEnsino tipoEnsino) {
-        //TODO: casos de teste
         if(tipoEnsino == null){
             throw new IllegalArgumentException("Erro: argumento tipo de ensino nao pode ser nulo");
         }
@@ -44,7 +43,6 @@ public class Curso {
     }
 
     public String getNomeCoordenador(){
-        //TODO: casos de teste
         if(this.coordenador == null){
             return "Curso nao possui coordenador";
         }
@@ -60,13 +58,13 @@ public class Curso {
     }
 
     public void setEscola(Escola escola) {
+        if(escola == null){
+            throw new IllegalArgumentException("Erro: o curso deve estar em uma escola");
+        }
         this.escola = escola;
     }
 
     public String getNomeEscola(){
-        if(this.escola == null){
-            throw new IllegalArgumentException("Essa escola nao oferece esse curso");
-        }
         return getEscola().getNome();
     }
 }

@@ -15,9 +15,6 @@ public class Escolaridade {
         if(graduacao.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: argumento graduacao nao pode ser vazio");
         }
-        if(!graduacao.equalsIgnoreCase("MESTRANDO") && !graduacao.equalsIgnoreCase("DOUTORANDO")){
-            throw new IllegalArgumentException("Erro: argumento graduacao só pode ser mestrando ou doutorando");
-        }
         this.graduacao = graduacao.toUpperCase();
     }
 }

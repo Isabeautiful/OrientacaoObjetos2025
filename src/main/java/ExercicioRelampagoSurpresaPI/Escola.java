@@ -28,7 +28,6 @@ public class Escola {
 
     public void setCidade(Cidade cidade) {
         if(cidade == null){
-            //TODO: casos de teste
             throw new IllegalArgumentException("Erro: argumento cidade nao pode ser nulo");
         }
         this.cidade = cidade;

@@ -4,7 +4,6 @@ public class Aluno extends Pessoa {
     Curso curso;
 
     public Aluno(String nome, Cidade cidade) {
-        //TODO: resolver o role da escolaridade
         super(nome, cidade);
         this.curso = null;
     }

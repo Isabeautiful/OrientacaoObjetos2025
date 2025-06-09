@@ -59,4 +59,8 @@ public class Pessoa {
     public String getNomeEstado(){
         return getCidade().getEstado().getNome();
     }
+
+    public String getNomeEscolaridade(){
+        return getEscolaridade().getGraduacao();
+    }
 }
