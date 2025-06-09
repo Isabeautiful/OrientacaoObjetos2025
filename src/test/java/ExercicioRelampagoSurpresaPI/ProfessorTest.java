@@ -52,4 +52,38 @@ class ProfessorTest {
         }
     }
 
+    @Test
+    void deveRetornarNomeContratacao(){
+        Estado estado = new Estado("Estado1");
+        Cidade cidade = new Cidade("C1", estado);
+        Escolaridade escolaridade = new Escolaridade("mestrando");
+        Professor professor = new Professor("P1", escolaridade, cidade);
+        TipoEnsino tipoEnsino = new TipoEnsino("TE1");
+        Curso curso = new Curso("Curso1", tipoEnsino);
+        professor.setContratacao(curso);
+        assertEquals("Curso1", professor.getNomeContratacao());
+    }
+
+    @Test
+    void deveRetornarProfessorSemContratacao(){
+        Estado estado = new Estado("Estado1");
+        Cidade cidade = new Cidade("C1", estado);
+        Escolaridade escolaridade = new Escolaridade("mestrando");
+        Professor professor = new Professor("P1", escolaridade, cidade);
+        professor.setContratacao(null);
+        assertEquals("Professor nao trabalha nesse curso", professor.getNomeContratacao());
+    }
+
+    @Test
+    void deveRetornarNomeTipoEnsino(){
+        Estado estado = new Estado("Estado1");
+        Cidade cidade = new Cidade("C1", estado);
+        Escolaridade escolaridade = new Escolaridade("mestrando");
+        Professor professor = new Professor("P1", escolaridade, cidade);
+        TipoEnsino tipoEnsino = new TipoEnsino("TE1");
+        Curso curso = new Curso("Curso1", tipoEnsino);
+        professor.setContratacao(curso);
+        assertEquals("TE1", professor.getNomeTipoDeEnsino());
+    }
+
 }

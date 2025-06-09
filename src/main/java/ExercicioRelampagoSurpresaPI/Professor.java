@@ -18,7 +18,6 @@ public class Professor extends Pessoa {
     }
 
     public String getNomeContratacao(){
-        //TODO: casos de teste
         if(this.contratacao == null){
             return "Professor nao trabalha nesse curso";
         }
@@ -26,10 +25,6 @@ public class Professor extends Pessoa {
     }
 
     public String getNomeTipoDeEnsino(){
-        //TODO: casos de teste
-        if(this.contratacao == null){
-            return "Professor nao trabalha com esse tipo de ensino";
-        }
         return getContratacao().getTipoEnsino().getNome();
     }
 }

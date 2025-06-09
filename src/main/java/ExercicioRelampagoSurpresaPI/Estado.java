@@ -12,7 +12,6 @@ public class Estado {
     }
 
     public void setNome(String nome) {
-        //TODO: casos de teste
         if(nome.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: argumento nome nao pode ser uma string vazia");
         }

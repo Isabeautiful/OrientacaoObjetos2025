@@ -14,7 +14,6 @@ public class Cidade {
     }
 
     public void setNome(String nome) {
-        //TODO: casos de teste
         if(nome.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: argumento nome nao pode ser uma string vazia");
         }
@@ -26,10 +25,13 @@ public class Cidade {
     }
 
     public void setEstado(Estado estado) {
-        //TODO: casos de teste
         if(estado == null){
             throw new IllegalArgumentException("Erro: Argumento Estado nao pode ser nulo");
         }
         this.estado = estado;
+    }
+
+    public String getNomeEstado(){
+        return getEstado().getNome();
     }
 }
