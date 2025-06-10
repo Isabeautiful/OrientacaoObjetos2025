@@ -39,4 +39,7 @@ class AlunoTest {
         assertEquals("Aluno nao matriculado", aluno.getNomeCurso());
     }
 
+    //deveretornarnomeestadonaturalidade
+    //deveretornarnaturalidadenula
+
 }

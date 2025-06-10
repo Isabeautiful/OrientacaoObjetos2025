@@ -1,9 +1,9 @@
 package ExercicioRelampagoSurpresaPI;
-
+//TODO: tirar as obrigatoriedades
 public class Pessoa {
     private String nome;
     private Escolaridade escolaridade;
-    private Cidade cidade;
+    private Cidade naturalidade;
 
     public Pessoa (String nome, Cidade cidade){
         setNome(nome);
@@ -31,14 +31,14 @@ public class Pessoa {
     }
 
     public Cidade getCidade() {
-        return this.cidade;
+        return this.naturalidade;
     }
 
     public void setCidade(Cidade cidade) {
         if(cidade == null){
             throw new IllegalArgumentException("Erro: argumento cidade nao pode ser nulo");
         }
-        this.cidade = cidade;
+        this.naturalidade = cidade;
     }
 
     public String getNomeGraduacao(){
@@ -57,7 +57,7 @@ public class Pessoa {
     }
 
     public String getNomeEstado(){
-        return getCidade().getEstado().getNome();
+        return getCidade().getNomeEstado();
     }
 
     public String getNomeEscolaridade(){

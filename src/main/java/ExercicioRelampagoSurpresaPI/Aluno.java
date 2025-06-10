@@ -22,4 +22,6 @@ public class Aluno extends Pessoa {
         }
         return getCurso().getNome();
     }
+
+    //do aluno, pegamos naturalidade
 }
