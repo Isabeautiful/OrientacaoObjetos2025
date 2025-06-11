@@ -3,9 +3,10 @@ package ExercicioRelampagoSurpresaPI;
 public class Aluno extends Pessoa {
     Curso curso;
 
-    public Aluno(String nome, Cidade cidade) {
-        super(nome, cidade);
+    public Aluno(String nome) {
+        super(nome);
         this.curso = null;
+        setCidade(null);
     }
 
     public Curso getCurso() {
@@ -23,5 +24,17 @@ public class Aluno extends Pessoa {
         return getCurso().getNome();
     }
 
-    //do aluno, pegamos naturalidade
+    public String getNaturalidade() {
+        if (getCidade() == null) {
+            return "Aluno sem naturalidade definida";
+        }
+        return getCidade.getNaturalidade();
+    }
+
+    public String getNomeEstadoNaturalidade() {
+        if (getCidade() == null) {
+            return "Aluno sem naturalidade definida";
+        }
+        return getCidade().getNomeEstado();
+    }
 }

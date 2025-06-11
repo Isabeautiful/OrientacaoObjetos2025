@@ -5,10 +5,10 @@ public class Pessoa {
     private Escolaridade escolaridade;
     private Cidade naturalidade;
 
-    public Pessoa (String nome, Cidade cidade){
+    public Pessoa (String nome){
         setNome(nome);
         this.escolaridade = null;
-        setCidade(cidade);
+        setCidade(null);
     }
 
     public String getNome() {
@@ -35,9 +35,6 @@ public class Pessoa {
     }
 
     public void setCidade(Cidade cidade) {
-        if(cidade == null){
-            throw new IllegalArgumentException("Erro: argumento cidade nao pode ser nulo");
-        }
         this.naturalidade = cidade;
     }
 
@@ -49,18 +46,30 @@ public class Pessoa {
     }
 
     public String getNaturalidade(){
+        if(getCidade() == null){
+            return "Pessoa sem naturalidade definida";
+        }
         return getCidade().getNome() + " " + getCidade().getEstado().getNome();
     }
 
     public String getNomeCidade(){
+        if(getCidade() == null){
+            return "Pessoa sem naturalidade definida";
+        }
         return getCidade().getNome();
     }
 
     public String getNomeEstado(){
+        if(getCidade() == null){
+            return "Pessoa sem naturalidade definida";
+        }
         return getCidade().getNomeEstado();
     }
 
     public String getNomeEscolaridade(){
+        if(this.escolaridade == null){
+            return "Pessoa sem escolaridade";
+        }
         return getEscolaridade().getGraduacao();
     }
 }

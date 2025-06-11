@@ -5,10 +5,10 @@ public class Escola {
     Cidade cidade;
     Professor diretor;
 
-    public Escola(String nome, Cidade cidade, Professor diretor){
+    public Escola(String nome, Cidade cidade){
         setNome(nome);
         setCidade(cidade);
-        setDiretor(diretor);
+        setDiretor(null);
     }
 
     public String getNome() {
@@ -38,13 +38,13 @@ public class Escola {
     }
 
     public void setDiretor(Professor diretor) {
-        if(diretor == null){
-            throw new IllegalArgumentException("Erro: diretor nao pode ser nulo");
-        }
         this.diretor = diretor;
     }
 
     public String getNomeDiretor(){
+        if(this.diretor == null){
+            return "Escola nao possui diretor";
+        }
         return getDiretor().getNome();
     }
 

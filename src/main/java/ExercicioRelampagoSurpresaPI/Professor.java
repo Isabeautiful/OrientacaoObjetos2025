@@ -3,7 +3,7 @@ package ExercicioRelampagoSurpresaPI;
 public class Professor extends Pessoa {
     private Curso contratacao;
 
-    public Professor (String nome, Cidade cidade){
+    public Professor (String nome){
         super(nome, cidade);
         setEscolaridade(null);
         this.contratacao = null;

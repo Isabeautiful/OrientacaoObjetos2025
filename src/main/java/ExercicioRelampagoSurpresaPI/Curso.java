@@ -6,10 +6,10 @@ public class Curso {
     Professor coordenador;
     Escola escola;
 
-    public Curso(String nome, TipoEnsino tipoEnsino, Escola escola){
+    public Curso(String nome, TipoEnsino tipoEnsino){
         setNome(nome);
         setTipoEnsino(tipoEnsino);
-        setEscola(escola);
+        setEscola(null);
     }
 
     public String getNome() {
@@ -58,13 +58,20 @@ public class Curso {
     }
 
     public void setEscola(Escola escola) {
-        if(escola == null){
-            throw new IllegalArgumentException("Erro: o curso deve estar em uma escola");
-        }
         this.escola = escola;
     }
 
     public String getNomeEscola(){
+        if(this.escola == null){
+            return "Curso nao vinculado a escola";
+        }
         return getEscola().getNome();
+    }
+
+    public String getNomeDiretor() {
+        if(this.escola == null || this.escola.getDirecao() == null){
+            return "Curso sem escola";
+        }
+        return this.escola.getNomeDiretor();
     }
 }
