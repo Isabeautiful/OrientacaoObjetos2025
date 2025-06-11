@@ -58,6 +58,8 @@ class AlunoTest {
         Curso curso = new Curso("Historia", new TipoEnsino("Presencial"));
         Aluno aluno = new Aluno("Fernanda");
         aluno.setCurso(curso);
-        assertEquals("Curso sem coordenador definido", aluno.getNomeCoordenador());
+        assertEquals("Curso nao possui coordenador", aluno.getNomeCoordenador());
     }
+
+
 }

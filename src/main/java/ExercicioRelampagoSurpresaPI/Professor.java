@@ -39,4 +39,13 @@ public class Professor extends Pessoa {
             return this.contratacao.getNomeDiretor();
         }
     }
+
+    public String getNomeCoordenador() {
+        if (this.contratacao == null) {
+            return "Professor sem curso";
+        }
+        else {
+            return this.contratacao.getNomeCoordenador();
+        }
+    }
 }

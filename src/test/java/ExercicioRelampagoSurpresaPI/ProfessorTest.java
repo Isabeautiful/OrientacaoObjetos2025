@@ -60,4 +60,14 @@ class ProfessorTest {
         assertEquals("São Paulo", professor.getNomeCidade());
     }
 
+    @Test
+    void deveRetornarCoordenador(){
+        Curso curso = new Curso("Curso de Matemática", new TipoEnsino("Presencial"));
+        Professor coordenador = new Professor("Carlos");
+        curso.setCoordenador(coordenador);
+        Professor professor = new Professor("Ana");
+        professor.setContratacao(curso);
+        assertEquals("Carlos", professor.getNomeCoordenador());
+    }
+
 }
