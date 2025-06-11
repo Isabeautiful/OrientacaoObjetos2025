@@ -37,4 +37,11 @@ public class Aluno extends Pessoa {
         }
         return getCidade().getNomeEstado();
     }
+
+    public String getNomeEstadoEstudo(){
+        if (getCurso() == null) {
+            return "Aluno sem curso definido";
+        }
+        return getCurso().getCidade().getNomeEstado();
+    }
 }

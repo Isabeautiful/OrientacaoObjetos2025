@@ -20,4 +20,20 @@ class AlunoTest {
         assertEquals("Pessoa sem naturalidade", aluno.getNomeEstadoNaturalidade());
     }
 
+    @Test
+    void deveRetonarEstadoEmQueEstuda(){
+        Estado estado = new Estado("Rio de Janeiro");
+        Cidade cidade = new Cidade("Niteroi", estado);
+        Curso curso = new Curso("Engenharia", new TipoEnsino("Presencial"));
+        curso.setCidade(cidade);
+        Aluno aluno = new Aluno("Maria");
+        aluno.setCurso(curso);
+        assertEquals("Rio de Janeiro", aluno.getNomeEstadoEstudo());
+    }
+
+    @Test
+    void deveRetornarEstadoEmQueEstudaNulo() {
+        Aluno aluno = new Aluno("Carlos");
+        assertEquals("Aluno sem curso definido", aluno.getNomeEstadoEstudo());
+    }
 }

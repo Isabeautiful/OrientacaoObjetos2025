@@ -52,4 +52,12 @@ class ProfessorTest {
         assertEquals("Professor nao trabalha nesse curso", professor.getNomeDiretor());
     }
 
+    @Test
+    deveRetornarCidadeNascimentoProfessor(){
+        Cidade cidade = new Cidade("São Paulo", new Estado("SP"));
+        Professor professor = new Professor("Ana");
+        professor.setCidade(cidade);
+        assertEquals("São Paulo", professor.getNomeCidade());
+    }
+
 }
