@@ -79,6 +79,16 @@ public class Curso {
         if(this.coordenador == null){
             return "Coordenador sem escolaridade definida";
         }
+        if(this.coordenador.getEscolaridade() == null){
+            return "Coordenador sem escolaridade definida";
+        }
         return this.coordenador.getEscolaridade().getGraduacao();
+    }
+
+    public String getNomeCidade(){
+        if(this.escola == null){
+            return "Curso sem escola";
+        }
+        return getEscola().getNomeCidade();
     }
 }

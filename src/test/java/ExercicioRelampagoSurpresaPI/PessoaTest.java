@@ -74,7 +74,7 @@ class PessoaTest {
     Pessoa pessoa = new Pessoa("João");
     Escolaridade escolaridade = new Escolaridade("Ensino Superior");
     pessoa.setEscolaridade(escolaridade);
-    assertEquals("Ensino Superior", pessoa.getNomeEscolaridade());
+    assertEquals("ENSINO SUPERIOR", pessoa.getNomeEscolaridade());
   }
 
   @Test

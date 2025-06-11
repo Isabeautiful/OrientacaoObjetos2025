@@ -4,7 +4,7 @@ public class Professor extends Pessoa {
     private Curso contratacao;
 
     public Professor (String nome){
-        super(nome, cidade);
+        super(nome);
         setEscolaridade(null);
         this.contratacao = null;
     }
@@ -47,5 +47,12 @@ public class Professor extends Pessoa {
         else {
             return this.contratacao.getNomeCoordenador();
         }
+    }
+
+    public String getNomeTipoEnsino(){
+        if(this.contratacao == null){
+            return "Professor sem curso";
+        }
+        return this.contratacao.getNomeTipoEnsino();
     }
 }

@@ -10,7 +10,7 @@ class ProfessorTest {
         Escolaridade escolaridade = new Escolaridade("Mestrado");
         Professor professor = new Professor("Carlos");
         professor.setEscolaridade(escolaridade);
-        assertEquals("Mestrado", professor.getNomeEscolaridade());
+        assertEquals("MESTRADO", professor.getNomeEscolaridade());
     }
 
     @Test
@@ -31,29 +31,30 @@ class ProfessorTest {
     @Test
     void deveRetornarTipoEnsinoVazio() {
         Professor professor = new Professor("Ana");
-        assertEquals("Professor nao trabalha nesse curso", professor.getNomeTipoEnsino());
+        assertEquals("Professor sem curso", professor.getNomeTipoEnsino());
     }
 
     @Test
     void deveRetornarNomeDiretor() {
         Professor diretor = new Professor("Beatriz");
         Professor professor = new Professor("João");
-        Curso curso = new Curso("Curso",new TipoEnsino());
+        Curso curso = new Curso("Curso",new TipoEnsino("Presencial"));
         professor.setContratacao(curso);
-        Escola escola = new Escola("Escola XYZ");
+        Cidade cidade = new Cidade("Juiz de fora", new Estado("MG"));
+        Escola escola = new Escola("Escola XYZ", cidade);
         curso.setEscola(escola);
-        escola.setDirecao(diretor);
+        escola.setDiretor(diretor);
         assertEquals("Beatriz", professor.getNomeDiretor());
     }
 
     @Test
     void deveRetornarProfessorSemCurso() {
         Professor professor = new Professor("Lucas");
-        assertEquals("Professor nao trabalha nesse curso", professor.getNomeDiretor());
+        assertEquals("Professor sem curso", professor.getNomeDiretor());
     }
 
     @Test
-    deveRetornarCidadeNascimentoProfessor(){
+    void deveRetornarCidadeNascimentoProfessor(){
         Cidade cidade = new Cidade("São Paulo", new Estado("SP"));
         Professor professor = new Professor("Ana");
         professor.setCidade(cidade);

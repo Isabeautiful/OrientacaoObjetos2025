@@ -1,5 +1,5 @@
 package ExercicioRelampagoSurpresaPI;
-//TODO: tirar as obrigatoriedades
+
 public class Pessoa {
     private String nome;
     private Escolaridade escolaridade;

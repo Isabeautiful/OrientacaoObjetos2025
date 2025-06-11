@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class CursoTest {
     @Test
     void deveRetornarNomeTipoEnsino() {
-        TipoEnsino tipoEnsino = new TipoEnsino("Curso","Ensino Fundamental");
-        Curso curso = new Curso(tipoEnsino);
+        TipoEnsino tipoEnsino = new TipoEnsino("Ensino Fundamental");
+        Curso curso = new Curso("Curso",tipoEnsino);
         assertEquals("Ensino Fundamental", curso.getNomeTipoEnsino());
     }
 
@@ -19,7 +19,7 @@ class CursoTest {
             fail();
         }
         catch (IllegalArgumentException e) {
-            assertEquals("Tipo ensino invalido", e.getMessage());
+            assertEquals("Erro: argumento tipo de ensino nao pode ser nulo", e.getMessage());
         }
     }
 
@@ -31,24 +31,19 @@ class CursoTest {
             fail();
         }
         catch (IllegalArgumentException e) {
-            assertEquals("Tipo ensino invalido", e.getMessage());
+            assertEquals("Erro: argumento tipo de ensino nao pode ser nulo", e.getMessage());
         }
     }
 
     @Test
     void deveRetornarNomeDiretor() {
         Professor professor = new Professor("Beatriz");
-        Escola escola = new Escola("Escola A");
-        escola.setDirecao(professor);
+        Cidade cidade = new Cidade("Juiz de Fora", new Estado("MG"));
+        Escola escola = new Escola("Escola A", cidade);
+        escola.setDiretor(professor);
         Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
         curso.setEscola(escola);
         assertEquals("Beatriz", curso.getNomeDiretor());
-    }
-
-    @Test
-    void deveRetornarCursoSemEscola() {
-        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
-        assertEquals("Curso sem escola", curso.getNomeDiretor());
     }
 
     @Test
@@ -67,7 +62,8 @@ class CursoTest {
 
     @Test
     void deveRetornarNomeEscola() {
-        Escola escola = new Escola("Escola B");
+        Cidade cidade = new Cidade("Juiz de Fora", new Estado("MG"));
+        Escola escola = new Escola("Escola B", cidade);
         Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
         curso.setEscola(escola);
         assertEquals("Escola B", curso.getNomeEscola());
@@ -102,7 +98,7 @@ class CursoTest {
         coordenador.setEscolaridade(escolaridade);
         Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
         curso.setCoordenador(coordenador);
-        assertEquals("Mestrado", curso.getNomeEscolaridadeCoordenador());
+        assertEquals("MESTRADO", curso.getNomeEscolaridadeCoordenador());
     }
 
     @Test

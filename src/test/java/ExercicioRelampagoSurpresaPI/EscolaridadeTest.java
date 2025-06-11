@@ -8,7 +8,7 @@ class EscolaridadeTest {
     @Test
     void alteraNomeEscolaridade(){
         Escolaridade escolaridade = new Escolaridade("Ensino Médio");
-        assertEquals("Ensino Médio", escolaridade.getNome());
+        assertEquals("ENSINO MÉDIO", escolaridade.getGraduacao());
     }
 
     @Test

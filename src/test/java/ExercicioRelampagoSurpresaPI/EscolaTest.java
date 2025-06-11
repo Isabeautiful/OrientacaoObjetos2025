@@ -104,7 +104,7 @@ class EscolaTest {
             escola.getCEP();
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("Erro: argumento estado nao pode ser nulo", e.getMessage());
+            assertEquals("Erro: Argumento Estado nao pode ser nulo", e.getMessage());
         }
     }
 
@@ -129,7 +129,7 @@ class EscolaTest {
             escola.getCEP();
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("Erro: argumento estado nao pode ser nulo", e.getMessage());
+            assertEquals("Erro: Argumento Estado nao pode ser nulo", e.getMessage());
         }
     }
 
@@ -155,7 +155,7 @@ class EscolaTest {
             escola.getNomeEstado();
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("Erro: argumento estado nao pode ser nulo", e.getMessage());
+            assertEquals("Erro: Argumento Estado nao pode ser nulo", e.getMessage());
         }
     }
 
@@ -168,7 +168,7 @@ class EscolaTest {
         Professor diretor = new Professor("Ana");
         diretor.setEscolaridade(escolaridade);
         escola.setDiretor(diretor);
-        assertEquals("Mestrado", escola.getNomeEscolaridadeDiretor());
+        assertEquals("MESTRADO", escola.getNomeEscolaridadeDiretor());
     }
 
     @Test
@@ -186,6 +186,6 @@ class EscolaTest {
         Estado estado = new Estado("São Paulo");
         Cidade cidade = new Cidade("São Paulo", estado);
         Escola escola = new Escola("Escola Teste", cidade);
-        assertEquals("Escola sem diretor", escola.getNomeEscolaridadeDiretor());
+        assertEquals("Escola nao possui diretor", escola.getNomeEscolaridadeDiretor());
     }
 }

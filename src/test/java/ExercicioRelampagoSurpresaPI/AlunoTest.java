@@ -10,14 +10,14 @@ class AlunoTest {
         Estado estado = new Estado("Minas Gerais");
         Cidade cidade = new Cidade("Juiz de Fora",estado);
         Aluno aluno = new Aluno("Joao");
-        aluno.setNaturalidade(cidade);
+        aluno.setCidade(cidade);
         assertEquals("Minas Gerais", aluno.getNomeEstadoNaturalidade());
     }
 
     @Test
     void deveRetornarNuturalidadeNula() {
-        Aluno aluno = new Aluno();
-        assertEquals("Pessoa sem naturalidade", aluno.getNomeEstadoNaturalidade());
+        Aluno aluno = new Aluno("Joao");
+        assertEquals("Aluno sem naturalidade definida", aluno.getNomeEstadoNaturalidade());
     }
 
     @Test
@@ -25,7 +25,9 @@ class AlunoTest {
         Estado estado = new Estado("Rio de Janeiro");
         Cidade cidade = new Cidade("Niteroi", estado);
         Curso curso = new Curso("Engenharia", new TipoEnsino("Presencial"));
-        curso.setCidade(cidade);
+        Escola escola = new Escola("Escola", cidade);
+        curso.setEscola(escola);
+        curso.getEscola().setCidade(cidade);
         Aluno aluno = new Aluno("Maria");
         aluno.setCurso(curso);
         assertEquals("Rio de Janeiro", aluno.getNomeEstadoEstudo());

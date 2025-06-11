@@ -28,7 +28,7 @@ public class Aluno extends Pessoa {
         if (getCidade() == null) {
             return "Aluno sem naturalidade definida";
         }
-        return getCidade.getNaturalidade();
+        return getCidade().getNome();
     }
 
     public String getNomeEstadoNaturalidade() {
@@ -42,7 +42,7 @@ public class Aluno extends Pessoa {
         if (getCurso() == null) {
             return "Aluno sem curso definido";
         }
-        return getCurso().getCidade().getNomeEstado();
+        return getCurso().getEscola().getNomeEstado();
     }
 
     public String getNomeCoordenador() {

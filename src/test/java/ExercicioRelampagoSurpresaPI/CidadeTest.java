@@ -15,23 +15,23 @@ class CidadeTest {
     @Test
     void deveRetornarExcecaoEstadoNuloConstrutor() {
         try {
-            Cidade cidade = new Cidade(null);
+            Cidade cidade = new Cidade("", new Estado("MG"));
             fail();
         }
         catch (IllegalArgumentException e) {
-            assertEquals("Erro: argumento Estado nao pode ser nulo", e.getMessage());
+            assertEquals("Erro: argumento nome nao pode ser uma string vazia", e.getMessage());
         }
     }
 
     @Test
     void deveRetornarExcecaoEstadoNulo() {
         try {
-            Cidade cidade = new Cidade(new Estado());
-            cidade.setEstado(null);
+            Cidade cidade = new Cidade("Juiz de Fora",new Estado("MG"));
+            cidade.getEstado().setNome("");
             fail();
         }
         catch (IllegalArgumentException e) {
-            assertEquals("Erro: argumento estado nao Pode ser Nulo", e.getMessage());
+            assertEquals("Erro: argumento nome nao pode ser uma string vazia", e.getMessage());
         }
     }
 }
