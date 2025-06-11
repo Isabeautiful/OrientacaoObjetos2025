@@ -69,7 +69,7 @@ public class Curso {
     }
 
     public String getNomeDiretor() {
-        if(this.escola == null || this.escola.getDirecao() == null){
+        if(this.escola == null){
             return "Curso sem escola";
         }
         return this.escola.getNomeDiretor();

@@ -25,6 +25,18 @@ public class Professor extends Pessoa {
     }
 
     public String getNomeTipoDeEnsino(){
+        if(this.contratacao == null){
+            return "Professor nao trabalha nesse curso";
+        }
         return getContratacao().getTipoEnsino().getNome();
+    }
+
+    public String getNomeDiretor() {
+        if (this.contratacao == null) {
+            return "Professor sem curso";
+        }
+        else {
+            return this.contratacao.getNomeDiretor();
+        }
     }
 }
