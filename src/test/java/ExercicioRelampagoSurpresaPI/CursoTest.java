@@ -26,7 +26,7 @@ class CursoTest {
     @Test
     void deveRetornarExcecaoTipoEnsinoNulo() {
         try {
-            Curso curso = new Curso("Curso", new TipoEnsino());
+            Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
             curso.setTipoEnsino(null);
             fail();
         }
@@ -40,14 +40,76 @@ class CursoTest {
         Professor professor = new Professor("Beatriz");
         Escola escola = new Escola("Escola A");
         escola.setDirecao(professor);
-        Curso curso = new Curso("Curso", new TipoEnsino());
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
         curso.setEscola(escola);
         assertEquals("Beatriz", curso.getNomeDiretor());
     }
 
     @Test
     void deveRetornarCursoSemEscola() {
-        Curso curso = new Curso("Curso", new TipoEnsino());
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
         assertEquals("Curso sem escola", curso.getNomeDiretor());
+    }
+
+    @Test
+    void deveRetornarNomeCoordenador() {
+        Professor coordenador = new Professor("Carlos");
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
+        curso.setCoordenador(coordenador);
+        assertEquals("Carlos", curso.getNomeCoordenador());
+    }
+
+    @Test
+    void deveRetornarCursoSemCoordenador() {
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
+        assertEquals("Curso nao possui coordenador", curso.getNomeCoordenador());
+    }
+
+    @Test
+    void deveRetornarNomeEscola() {
+        Escola escola = new Escola("Escola B");
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
+        curso.setEscola(escola);
+        assertEquals("Escola B", curso.getNomeEscola());
+    }
+
+    @Test
+    void deveRetornarCursoSemEscola() {
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
+        assertEquals("Curso nao vinculado a escola", curso.getNomeEscola());
+    }
+
+    @Test
+    void deveRetornarNomeCurso() {
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
+        assertEquals("Curso", curso.getNome());
+    }
+
+    @Test
+    void deveRetornarExcecaoNomeCursoVazio() {
+        try {
+            Curso curso = new Curso("", new TipoEnsino("Ensino Superior"));
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Erro: argumento nome nao pode ser vazio", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarEscolaridadeCoordenador() {
+        Escolaridade escolaridade = new Escolaridade("Mestrado");
+        Professor coordenador = new Professor("Ana");
+        coordenador.setEscolaridade(escolaridade);
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
+        curso.setCoordenador(coordenador);
+        assertEquals("Mestrado", curso.getNomeEscolaridadeCoordenador());
+    }
+
+    @Test
+    void deveRetornarCoordenadorSemEscolaridade() {
+        Professor coordenador = new Professor("João");
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
+        curso.setCoordenador(coordenador);
+        assertEquals("Coordenador sem escolaridade definida", curso.getNomeEscolaridadeCoordenador());
     }
 }
