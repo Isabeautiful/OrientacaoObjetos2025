@@ -59,4 +59,11 @@ public class Escola {
     public String getCEP(){
         return getCidade().getNome() + " " + getCidade().getEstado().getNome();
     }
+
+    public String getNomeEscolaridadeDiretor(){
+        if(this.diretor == null){
+            return "Escola nao possui diretor";
+        }
+        return getDiretor().getNomeGraduacao();
+    }
 }
