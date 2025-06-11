@@ -44,4 +44,14 @@ public class Aluno extends Pessoa {
         }
         return getCurso().getCidade().getNomeEstado();
     }
+
+    public String getNomeCoordenador() {
+        if (getCurso() == null) {
+            return "Aluno sem curso definido";
+        }
+        if(getCurso().getCoordenador() == null) {
+            return "Curso sem coordenador definido";
+        }
+        return getCurso().getCoordenador().getNome();
+    }
 }
