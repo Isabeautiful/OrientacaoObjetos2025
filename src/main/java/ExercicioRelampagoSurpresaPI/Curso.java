@@ -77,12 +77,9 @@ public class Curso {
 
     public String getNomeEscolaridadeCoordenador() {
         if(this.coordenador == null){
-            return "Coordenador sem escolaridade definida";
+            return "Curso sem coordenador";
         }
-        if(this.coordenador.getEscolaridade() == null){
-            return "Coordenador sem escolaridade definida";
-        }
-        return this.coordenador.getEscolaridade().getGraduacao();
+        return this.coordenador.getNomeEscolaridade();
     }
 
     public String getNomeCidade(){
@@ -90,5 +87,13 @@ public class Curso {
             return "Curso sem escola";
         }
         return getEscola().getNomeCidade();
+    }
+
+    public String getNomeEstadoEscola(){
+        if(this.escola == null){
+            //TODO: caso teste
+            return "Curso sem escola";
+        }
+        return getEscola().getNomeEstado();
     }
 }

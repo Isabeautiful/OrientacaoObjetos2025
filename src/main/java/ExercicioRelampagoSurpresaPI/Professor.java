@@ -55,4 +55,6 @@ public class Professor extends Pessoa {
         }
         return this.contratacao.getNomeTipoEnsino();
     }
+
+    //TODO: cidade nascimento professor
 }

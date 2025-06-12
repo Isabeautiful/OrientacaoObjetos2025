@@ -42,7 +42,7 @@ public class Aluno extends Pessoa {
         if (getCurso() == null) {
             return "Aluno sem curso definido";
         }
-        return getCurso().getEscola().getNomeEstado();
+        return getCurso().getNomeEstadoEscola();
     }
 
     public String getNomeCoordenador() {

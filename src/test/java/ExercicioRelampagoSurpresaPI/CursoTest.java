@@ -106,12 +106,13 @@ class CursoTest {
         Professor coordenador = new Professor("João");
         Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
         curso.setCoordenador(coordenador);
-        assertEquals("Coordenador sem escolaridade definida", curso.getNomeEscolaridadeCoordenador());
+        assertEquals("Pessoa sem escolaridade", curso.getNomeEscolaridadeCoordenador());
     }
 
     @Test
     void deveRetornarCoordenadorSemEscolaridadeCoordenadorNull() {
         Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
-        assertEquals("Coordenador sem escolaridade definida", curso.getNomeEscolaridadeCoordenador());
+        assertEquals("Curso sem coordenador", curso.getNomeEscolaridadeCoordenador());
     }
+    //TODO: teste nome Estado 2x
 }
