@@ -108,4 +108,10 @@ class CursoTest {
         curso.setCoordenador(coordenador);
         assertEquals("Coordenador sem escolaridade definida", curso.getNomeEscolaridadeCoordenador());
     }
+
+    @Test
+    void deveRetornarCoordenadorSemEscolaridadeCoordenadorNull() {
+        Curso curso = new Curso("Curso", new TipoEnsino("Ensino Superior"));
+        assertEquals("Coordenador sem escolaridade definida", curso.getNomeEscolaridadeCoordenador());
+    }
 }
