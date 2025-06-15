@@ -4,10 +4,12 @@ public Funcionario {
   private Escolaridade escolaridade;
   private String nome;
   private Filial coordenacao;
+  private Departamento alocacao;
 
   public Funcionario(String nome) {
     setNome(nome);
     this.escolaridade = null;
+    this.coordenacao = null;
   }
 
   public Escolaridade getEscolaridade() {
@@ -31,7 +33,7 @@ public Funcionario {
 
   public String getNomeEscolaridade() {
     if (this.escolaridade == null) {
-      return "Erro: Funcionario sem escolaridade definida";
+      return "Funcionario sem escolaridade definida";
     }
     return this.escolaridade.getNome();
   }
@@ -46,30 +48,45 @@ public Funcionario {
 
   public String getNomeFilial() {
     if (this.coordenacao == null) {
-      return "Erro: Funcionario sem filial definida";
+      return "Funcionario sem filial definida";
     }
     return this.coordenacao.getNome();
   }
 
   public String getNomeCidade() {
     if (this.coordenacao == null) {
-      return "Erro: Funcionario sem filial definida";
+      return "Funcionario sem filial definida";
     }
     return this.coordenacao.getNomeCidade();
   }
 
   public String getNomeEstado() {
     if (this.coordenacao == null) {
-      return "Erro: Funcionario sem filial definida";
+      return "Funcionario sem filial definida";
     }
     return this.coordenacao.getNomeEstado();
   }
 
   public String getNomePais() {
     if (this.coordenacao == null) {
-      return "Erro: Funcionario sem filial definida";
+      return "Funcionario sem filial definida";
     }
     return this.coordenacao.getNomePais();
   }
-  
+
+  public Departamento getDepartamento() {
+    return this.alocacao;
+  }
+
+  public void setDepartamento(Departamento alocacao) {
+    this.alocacao = alocacao;
+  }
+
+  public String getNomeDepartamento() {
+    if (this.alocacao == null) {
+      return "Funcionario nao alocado a nenhum departamento";
+    }
+    return this.alocacao.getNome();
+  }
+
 }
