@@ -65,5 +65,89 @@ class DepartamentoTest {
     Departamento departamento = new Departamento("Recursos Humanos");
     assertEquals("Departamento sem empresa definida", departamento.getNomeEmpresa());
   }
-  
+
+  @Test
+  void deveRetornarNomeGrupo() {
+    Empresa empresa = new Empresa("Tech Solutions");
+    Grupo grupo = new Grupo("Grupo Tech", new Pais("Brasil"));
+    empresa.setGrupo(grupo);
+    
+    Departamento departamento = new Departamento("Recursos Humanos");
+    departamento.setEmpresa(empresa);
+    
+    assertEquals("Grupo Tech", departamento.getNomeGrupo());
+  }
+
+  @Test
+  void deveRetornarNomeSede() {
+    Empresa empresa = new Empresa("Tech Solutions");
+    Grupo grupo = new Grupo("Grupo Tech", new Pais("Brasil"));
+    empresa.setGrupo(grupo);
+    
+    Departamento departamento = new Departamento("Recursos Humanos");
+    departamento.setEmpresa(empresa);
+    
+    assertEquals("Brasil", departamento.getNomeSede());
+  }
+
+  @Test
+  void deveRetornarNomeDiretor() {
+    Empresa empresa = new Empresa("Tech Solutions");
+    Funcionario diretor = new Funcionario("Maria");
+    empresa.setDiretor(diretor);
+    
+    Departamento departamento = new Departamento("Recursos Humanos");
+    departamento.setEmpresa(empresa);
+    
+    assertEquals("Maria", departamento.getNomeDiretor());
+  }
+
+  @Test
+  void deveRetornarNomePresidente() {
+    Empresa empresa = new Empresa("Tech Solutions");
+    Grupo grupo = new Grupo("Grupo Tech", new Pais("Brasil"));
+    empresa.setGrupo(grupo);
+    Funcionario presidente = new Funcionario("Carlos");
+    grupo.setPresidente(presidente);
+    
+    Departamento departamento = new Departamento("Recursos Humanos");
+    departamento.setEmpresa(empresa);
+    
+    assertEquals("Carlos", departamento.getNomePresidente());
+  }
+
+  @Test
+  void deveRetornarDepartamentoSemEmpresaNomeEmpresa(){
+    Departamento departamento = new Departamento("Recursos Humanos");
+    
+    assertEquals("Departamento sem empresa definida", departamento.getNomeEmpresa());
+  }
+
+  @Test
+  void deveRetornarDepartamentoSemEmpresaNomeGrupo(){
+    Departamento departamento = new Departamento("Recursos Humanos");
+    
+    assertEquals("Departamento sem empresa definida", departamento.getNomeGrupo());
+  }
+
+  @Test
+  void deveRetornarDepartamentoSemEmpresaNomeSede(){
+    Departamento departamento = new Departamento("Recursos Humanos");
+    
+    assertEquals("Departamento sem empresa definida", departamento.getNomeSede());
+  }
+
+  @Test
+  void deveRetornarDepartamentoSemEmpresaNomeDiretor(){
+    Departamento departamento = new Departamento("Recursos Humanos");
+    
+    assertEquals("Departamento sem empresa definida", departamento.getNomeDiretor());
+  }
+
+  @Test
+  void deveRetornarDepartamentoSemEmpresaNomePresidente(){
+    Departamento departamento = new Departamento("Recursos Humanos");
+    
+    assertEquals("Departamento sem empresa definida", departamento.getNomePresidente());
+  }
 }

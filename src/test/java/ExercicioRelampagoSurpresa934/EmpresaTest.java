@@ -64,4 +64,36 @@ class EmpresaTest {
     Empresa empresa = new Empresa("Tech Solutions");
     assertEquals("Empresa sem grupo definido", empresa.getNomeGrupo());
   }
+
+  @Test
+  void deveRetornarNomeSedeEmpresa() {
+    Grupo grupo = new Grupo("Grupo de Inovação", new Pais("Brasil"));
+    Empresa empresa = new Empresa("Tech Solutions");
+    empresa.setGrupo(grupo);
+    
+    assertEquals("Brasil", empresa.getNomeSede());
+  }
+
+  @Test
+  void deveRetornarEmpresaSemGrupoSede() {
+    Empresa empresa = new Empresa("Tech Solutions");
+    assertEquals("Empresa sem grupo definido", empresa.getNomeSede());
+  }
+
+  @Test
+  void deveRetornarNomePresidente() {
+    Funcionario presidente = new Funcionario("Carlos");
+    Grupo grupo = new Grupo("Grupo de Inovação", new Pais("Brasil"));
+    grupo.setPresidente(presidente);
+    Empresa empresa = new Empresa("Tech Solutions");
+    empresa.setGrupo(grupo);
+
+    assertEquals("Carlos", empresa.getNomePresidente());
+  }
+
+  @Test
+  void deveRetornarEmpresaSemGrupoPresidente() {
+    Empresa empresa = new Empresa("Tech Solutions");
+    assertEquals("Empresa sem grupo definido", empresa.getNomePresidente());
+  }
 }

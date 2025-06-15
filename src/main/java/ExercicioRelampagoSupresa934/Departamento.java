@@ -51,4 +51,32 @@ public class Departamento {
     }
     return this.empresa.getNome();
   }
+
+  public String getNomeGrupo() {
+    if (this.empresa == null) {
+      return "Departamento empresa definida";
+    }
+    return this.empresa.getNomeGrupo();
+  }
+
+  public String getNomeSede(){
+    if (this.empresa == null) {
+      return "Departamento sem empresa definida";
+    }
+    return this.empresa.getNomeSede();
+  }
+
+  public String getNomeDiretor() {
+    if (this.empresa == null) {
+      return "Departamento sem empresa definida";
+    }
+    return this.empresa.getNomeDiretor();
+  }
+
+  public String getNomePresidente() {
+    if (this.empresa == null) {
+      return "Departamento sem empresa definida";
+    }
+    return this.empresa.getNomePresidente();
+  }
 }

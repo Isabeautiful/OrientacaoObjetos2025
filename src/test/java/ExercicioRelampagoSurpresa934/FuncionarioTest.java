@@ -135,4 +135,62 @@ class FuncionarioTest {
     assertEquals("Funcionario nao alocado a nenhum departamento", funcionario.getNomeDepartamento());
   }
 
+  @Test
+  void deveRetornarNomeEmpresa(){
+    Funcionario funcionario = new Funcionario("João");
+    Departamento departamento = new Departamento("Departamento A");
+    Empresa empresa = new Empresa("Tech Solutions");
+    
+    departamento.setEmpresa(empresa);
+    funcionario.setDepartamento(departamento);
+    
+    assertEquals("Tech Solutions", funcionario.getNomeEmpresa());
+  }
+
+  @Test
+  void deveRetornarFuncionarioSemDepartamentoEmpresa() {
+    Funcionario funcionario = new Funcionario("João");
+    assertEquals("Funcionario nao alocado a nenhum departamento", funcionario.getNomeEmpresa());
+  }
+
+  @Test
+  void deveRetornarNomeGrupo() {
+    Funcionario funcionario = new Funcionario("João");
+    Departamento departamento = new Departamento("Departamento A");
+    Empresa empresa = new Empresa("Tech Solutions");
+    Grupo grupo = new Grupo("Grupo Tech", new Pais("Brasil"));
+    
+    empresa.setGrupo(grupo);
+    departamento.setEmpresa(empresa);
+    funcionario.setDepartamento(departamento);
+    
+    assertEquals("Grupo Tech", funcionario.getNomeGrupo());
+  }
+
+  @Test
+  void deveRetornarFuncionarioSemDepartamentoGrupo() {
+    Funcionario funcionario = new Funcionario("João");
+    assertEquals("Funcionario nao alocado a nenhum departamento", funcionario.getNomeGrupo());
+  }
+
+  @Test
+  void deveRetornarNomeSede() {
+    Funcionario funcionario = new Funcionario("João");
+    Departamento departamento = new Departamento("Departamento A");
+    Empresa empresa = new Empresa("Tech Solutions");
+    Grupo grupo = new Grupo("Grupo Tech", new Pais("Brasil"));
+    
+    empresa.setGrupo(grupo);
+    departamento.setEmpresa(empresa);
+    funcionario.setDepartamento(departamento);
+    
+    assertEquals("Brasil", funcionario.getNomeSede());
+  }
+
+  @Test
+  void deveRetornarFuncionarioSemDepartamentoSede() {
+    Funcionario funcionario = new Funcionario("João");
+    assertEquals("Funcionario nao alocado a nenhum departamento", funcionario.getNomeSede());
+  }
+
 }

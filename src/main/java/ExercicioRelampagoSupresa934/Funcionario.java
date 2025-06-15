@@ -90,4 +90,25 @@ public class Funcionario {
     return this.alocacao.getNome();
   }
 
+  public String getNomeEmpresa() {
+    if (this.alocacao == null) {
+      return "Funcionario nao alocado a nenhum departamento";
+    }
+    return this.alocacao.getNomeEmpresa();
+  }
+
+  public String getNomeGrupo(){
+    if (this.alocacao == null) {
+      return "Funcionario nao alocado a nenhum departamento";
+    }
+    return this.alocacao.getNomeGrupo();
+  }
+
+  public String getNomeSede(){
+    if (this.alocacao == null) {
+      return "Funcionario nao alocado a nenhum departamento";
+    }
+    return this.alocacao.getNomeSede();
+  }
+
 }

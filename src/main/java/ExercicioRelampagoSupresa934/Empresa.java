@@ -52,4 +52,18 @@ public class Empresa {
     return this.grupo.getNome();
   }
 
+  public String getNomeSede() {
+    if (this.grupo == null) {
+      return "Empresa sem grupo definido";
+    }
+    return this.grupo.getNomeSede();
+  }
+
+  public String getNomePresidente() {
+    if (this.grupo == null) {
+      return "Empresa sem grupo definido";
+    }
+    return this.grupo.getNomePresidente();
+  }
+
 }

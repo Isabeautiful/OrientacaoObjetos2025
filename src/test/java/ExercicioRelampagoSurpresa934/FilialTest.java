@@ -87,4 +87,32 @@ class FilialTest {
     
     assertEquals("Filial sem empresa definida", filial.getNomeEmpresa());
   }
+
+  @Test
+  void deveRetornarNomeGrupo() {
+    Estado estado = new Estado("MG", new Pais("Brasil"));
+    Cidade cidade = new Cidade("Juiz de Fora", estado);
+    Filial filial = new Filial("Filial Centro", cidade);
+    
+    Empresa empresa = new Empresa("Tech Solutions");
+    Grupo grupo = new Grupo("Grupo Tech", new Pais("Brasil"));
+    empresa.setGrupo(grupo);
+    filial.setEmpresa(empresa);
+    
+    assertEquals("Grupo Tech", filial.getNomeGrupo());
+  }
+
+  @Test
+  void deveRetornarNomeSede() {
+    Estado estado = new Estado("MG", new Pais("Brasil"));
+    Cidade cidade = new Cidade("Juiz de Fora", estado);
+    Filial filial = new Filial("Filial Centro", cidade);
+    
+    Empresa empresa = new Empresa("Tech Solutions");
+    Grupo grupo = new Grupo("Grupo Tech", new Pais("Brasil"));
+    empresa.setGrupo(grupo);
+    filial.setEmpresa(empresa);
+    
+    assertEquals("Brasil", filial.getNomeSede());
+  }
 }

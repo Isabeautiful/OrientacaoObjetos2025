@@ -59,4 +59,18 @@ public class Filial{
     }
     return this.empresa.getNome();
   }
+
+  public String getNomeGrupo() {
+    if (this.empresa == null) {
+      return "Filial sem empresa definida";
+    }
+    return this.empresa.getNomeGrupo();
+  }
+
+  public String getNomeSede() {
+    if (this.empresa == null) {
+      return "Filial sem empresa definida";
+    }
+    return this.empresa.getNomeSede();
+  }
 }
