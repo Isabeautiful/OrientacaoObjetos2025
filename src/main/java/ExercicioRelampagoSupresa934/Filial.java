@@ -1,6 +1,6 @@
 package ExercicioRelampagoSurpresa934;
 
-public Filial{
+public class Filial{
   private String nome;
   private Cidade cidade;
   private Empresa empresa;

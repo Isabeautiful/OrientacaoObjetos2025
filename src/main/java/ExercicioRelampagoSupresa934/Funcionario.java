@@ -1,6 +1,6 @@
 package ExercicioRelampagoSurpresa934;
 
-public Funcionario {
+public class Funcionario {
   private Escolaridade escolaridade;
   private String nome;
   private Filial coordenacao;

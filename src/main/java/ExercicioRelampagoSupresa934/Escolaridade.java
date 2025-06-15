@@ -1,6 +1,6 @@
 package ExercicioRelampagoSurpresa934;
 
-public Escolaridade {
+public class Escolaridade {
   private String nome;
 
   public Escolaridade(String nome) {

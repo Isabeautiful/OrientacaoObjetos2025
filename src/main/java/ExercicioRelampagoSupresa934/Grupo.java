@@ -1,6 +1,6 @@
 package ExercicioRelampagoSurpresa934;
 
-public Grupo{
+public class Grupo{
   private String nome;
   private Funcionario presidente;
   private Pais sede;

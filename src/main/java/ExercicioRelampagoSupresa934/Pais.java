@@ -1,6 +1,6 @@
 package ExercicioRelampagoSurpresa934;
 
-public Pais{
+public class Pais{
   private String nome;
 
   public Pais(String nome) {

@@ -1,6 +1,6 @@
 package ExercicioRelampagoSurpresa934;
 
-public Estado{
+public class Estado{
   private String nome;
   private Pais pais;
 
