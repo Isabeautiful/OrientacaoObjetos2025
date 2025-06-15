@@ -3,11 +3,12 @@ package ExercicioRelampagoSurpresa934;
 public class Departamento {
   private String nome;
   private Funcionario chefia;
-  private Empresa empresa;
+  private Empresa empresa; //Obrigatorio?
 
   public Departamento(String nome) {
     setNome(nome);
     this.chefia = null;
+    this.empresa = null;
   }
 
   public String getNome() {
