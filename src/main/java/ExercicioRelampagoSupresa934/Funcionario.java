@@ -54,21 +54,21 @@ public class Funcionario {
     return this.coordenacao.getNome();
   }
 
-  public String getNomeCidade() {
+  public String getNomeCidadeFilial() {
     if (this.coordenacao == null) {
       return "Funcionario sem filial definida";
     }
     return this.coordenacao.getNomeCidade();
   }
 
-  public String getNomeEstado() {
+  public String getNomeEstadoFilial() {
     if (this.coordenacao == null) {
       return "Funcionario sem filial definida";
     }
     return this.coordenacao.getNomeEstado();
   }
 
-  public String getNomePais() {
+  public String getNomePaisFilial() {
     if (this.coordenacao == null) {
       return "Funcionario sem filial definida";
     }
