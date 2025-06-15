@@ -82,4 +82,23 @@ class GrupoTest {
     
     assertEquals("Brasil", grupo.getNomeSede());
   }
+
+  @Test
+  void deveRetornarEscolaridadePresidente() {
+    Funcionario presidente = new Funcionario("Carlos");
+    Escolaridade escolaridade = new Escolaridade("Mestrado");
+    presidente.setEscolaridade(escolaridade);
+    
+    Grupo grupo = new Grupo("Grupo de Inovação", new Pais("Brasil"));
+    grupo.setPresidente(presidente);
+    
+    assertEquals("Mestrado", grupo.getEscolaridadePresidente());
+  }
+
+  @Test
+  void deveRetornarGrupoSemPresidenteEscolaridade() {
+    Grupo grupo = new Grupo("Grupo A", new Pais("Brasil"));
+    
+    assertEquals("Grupo sem presidente definido", grupo.getEscolaridadePresidente());
+  }
 }

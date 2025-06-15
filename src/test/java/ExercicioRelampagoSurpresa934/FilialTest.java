@@ -115,4 +115,27 @@ class FilialTest {
     
     assertEquals("Brasil", filial.getNomeSede());
   }
+
+  @Test
+  void deveRetornarNomeDiretorEmpresa() {
+    Estado estado = new Estado("MG", new Pais("Brasil"));
+    Cidade cidade = new Cidade("Juiz de Fora", estado);
+    Filial filial = new Filial("Filial Centro", cidade);
+    
+    Empresa empresa = new Empresa("Tech Solutions");
+    Funcionario diretor = new Funcionario("Maria", "987654321");
+    empresa.setDiretor(diretor);
+    filial.setEmpresa(empresa);
+    
+    assertEquals("Maria", filial.getNomeDiretorEmpresa());
+  }
+
+  @Test
+  void deveRetornarFilialSemDiretorEmpresa() {
+    Estado estado = new Estado("MG", new Pais("Brasil"));
+    Cidade cidade = new Cidade("Juiz de Fora", estado);
+    Filial filial = new Filial("Filial Centro", cidade);
+    
+    assertEquals("Filial sem empresa definida", filial.getNomeDiretorEmpresa());
+  }
 }

@@ -79,4 +79,12 @@ public class Departamento {
     }
     return this.empresa.getNomePresidente();
   }
+
+  //numero 4
+  public String getNomeEscolaridadeChefia() {
+    if (this.chefia == null) {
+      return "Departamento sem chefia";
+    }
+    return this.chefia.getNomeEscolaridade();
+  }
 }

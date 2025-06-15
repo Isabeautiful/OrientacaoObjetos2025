@@ -150,4 +150,15 @@ class DepartamentoTest {
     
     assertEquals("Departamento sem empresa definida", departamento.getNomePresidente());
   }
+
+  @Test
+  void deveRetornarEscolaridadeChefia() {
+    Funcionario funcionario = new Funcionario("João");
+    funcionario.setEscolaridade("Mestrado");
+    
+    Departamento departamento = new Departamento("Recursos Humanos");
+    departamento.setChefia(funcionario);
+    
+    assertEquals("Mestrado", departamento.getChefia().getEscolaridade());
+  }
 }

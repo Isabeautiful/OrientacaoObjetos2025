@@ -52,4 +52,12 @@ public class Grupo{
     return this.sede.getNome();
   }
 
+//numero 1
+  public String getEscolaridadePresidente() {
+    if (this.presidente == null) {
+      return "Grupo sem presidente definido";
+    }
+    return this.presidente.getNomeEscolaridade();
+  }
+
 }

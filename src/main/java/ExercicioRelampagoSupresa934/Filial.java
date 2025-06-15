@@ -73,4 +73,12 @@ public class Filial{
     }
     return this.empresa.getNomeSede();
   }
+
+  //numero 5
+  public String getNomeDiretorEmpresa() {
+    if (this.empresa == null) {
+      return "Filial sem empresa definida";
+    }
+    return this.empresa.getNomeDiretor();
+  }
 }

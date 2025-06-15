@@ -61,6 +61,7 @@ public class Funcionario {
     return this.coordenacao.getNomeCidade();
   }
 
+  //numero 3
   public String getNomeEstadoFilial() {
     if (this.coordenacao == null) {
       return "Funcionario sem filial definida";
@@ -104,6 +105,7 @@ public class Funcionario {
     return this.alocacao.getNomeGrupo();
   }
 
+  //numero 2
   public String getNomeSede(){
     if (this.alocacao == null) {
       return "Funcionario nao alocado a nenhum departamento";
