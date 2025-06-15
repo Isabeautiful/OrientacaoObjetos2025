@@ -36,9 +36,6 @@ public class Cidade{
   }
 
   public String getNomePais() {
-    // if (this.estado == null) {
-    //   throw new IllegalArgumentException("Erro: Estado ou País não podem ser nulos");
-    // }
     return this.estado.getNomePais();
   }
 
