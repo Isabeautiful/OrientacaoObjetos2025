@@ -8,6 +8,7 @@ public class Empresa {
   public Empresa(String nome) {
     setNome(nome);
     this.diretor = null;
+    this.grupo = null;
   }
 
   public String getNome() {
