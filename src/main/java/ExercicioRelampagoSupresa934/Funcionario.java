@@ -10,6 +10,7 @@ public Funcionario {
     setNome(nome);
     this.escolaridade = null;
     this.coordenacao = null;
+    this.alocacao = null;
   }
 
   public Escolaridade getEscolaridade() {
