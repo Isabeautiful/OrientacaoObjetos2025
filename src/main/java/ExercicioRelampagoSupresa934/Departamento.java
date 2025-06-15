@@ -3,6 +3,7 @@ package ExercicioRelampagoSurpresa934;
 public Departamento {
   private String nome;
   private Funcionario chefia;
+  private Empresa empresa;
 
   public Departamento(String nome) {
     setNome(nome);
@@ -33,5 +34,20 @@ public Departamento {
       return "Departamento Sem chefia";
     }
     return this.chefia.getNome();
+  }
+
+  public Empresa getEmpresa() {
+    return this.empresa;
+  }
+
+  public void setEmpresa(Empresa empresa) {
+    this.empresa = empresa;
+  }
+
+  public String getNomeEmpresa() {
+    if (this.empresa == null) {
+      return "Departamento sem empresa definida";
+    }
+    return this.empresa.getNome();
   }
 }

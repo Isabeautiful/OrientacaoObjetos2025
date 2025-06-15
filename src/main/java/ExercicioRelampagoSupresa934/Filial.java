@@ -3,6 +3,7 @@ package ExercicioRelampagoSurpresa934;
 public Filial{
   private String nome;
   private Cidade cidade;
+  private Empresa empresa;
 
   public Filial(String nome, Cidade cidade) {
     setNome(nome);
@@ -41,5 +42,20 @@ public Filial{
 
   public String getNomePais() {
     return this.cidade.getNomePais();
+  }
+
+  public Empresa getEmpresa() {
+    return this.empresa;
+  }
+
+  public void setEmpresa(Empresa empresa) {
+    this.empresa = empresa;
+  }
+
+  public String getNomeEmpresa() {
+    if (this.empresa == null) {
+      return "Filial sem empresa definida";
+    }
+    return this.empresa.getNome();
   }
 }

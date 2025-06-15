@@ -6,6 +6,7 @@ public Empresa {
 
   public Empresa(String nome) {
     setNome(nome);
+    this.diretor = null;
   }
 
   public String getNome() {
