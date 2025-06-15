@@ -8,6 +8,7 @@ public Filial{
   public Filial(String nome, Cidade cidade) {
     setNome(nome);
     setCidade(cidade);
+    this.empresa = null;
   }
 
   public String getNome() {

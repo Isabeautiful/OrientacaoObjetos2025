@@ -3,6 +3,7 @@ package ExercicioRelampagoSurpresa934;
 public Empresa {
   private String nome;
   private Funcionario diretor;
+  private Grupo grupo;
 
   public Empresa(String nome) {
     setNome(nome);
@@ -33,6 +34,21 @@ public Empresa {
       return "Empresa sem diretor definido";
     }
     return this.diretor.getNome();
+  }
+
+  public Grupo getGrupo() {
+    return this.grupo;
+  }
+
+  public void setGrupo(Grupo grupo) {
+    this.grupo = grupo;
+  }
+
+  public String getNomeGrupo() {
+    if (this.grupo == null) {
+      return "Empresa sem grupo definido";
+    }
+    return this.grupo.getNome();
   }
 
 }
