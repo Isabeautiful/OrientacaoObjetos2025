@@ -21,6 +21,9 @@ public class Produto {
     }
 
     public void setNome(String nome) {
+        if(nome.trim().isEmpty()){
+            throw new IllegalArgumentException("Nome invalido");
+        }
         this.nome = nome;
     }
 
@@ -100,7 +103,7 @@ public class Produto {
         if(getQuantidadeEstoque() > getEstoqueMaximo()){
             throw new IllegalArgumentException("Estoque maior que a quantidade maxima");
         }
-        setQuantidadeEstoque(getQuantidadeEstoque() - numero);
+        setQuantidadeEstoque(getQuantidadeEstoque() + numero);
     }
 
     //letra c
