@@ -38,5 +38,29 @@ public class Contribuinte {
         this.nome = nome;
     }
 
-    //get e set do Arraylist ?
+    public ArrayList<Imoveis> getImoveis(){
+        return imoveis;
+    }
+
+    public void adicionarImovel(Imoveis imovel){
+        this.imoveis.add(imovel);
+    }
+
+    public void removerImovel(Imoveis imovel){
+        this.imoveis.remove(imovel);
+    }
+
+    public float calcularTotalIPTU(){
+        float total = 0;
+        for(Imoveis imovel: imoveis){
+            total += imovel.getValorImovel();
+        }
+        return total;
+    }
+
+    public void listarImoveis(){
+        for(Imoveis imovel: imoveis){
+            imovel.getDescricao();
+        }
+    }
 }

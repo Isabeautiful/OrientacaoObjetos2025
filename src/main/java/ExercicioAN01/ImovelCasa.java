@@ -2,13 +2,30 @@ package ExercicioAN01;
 
 public class ImovelCasa extends Imoveis{
     //Valor do imovel: 30,00 por metro quadrado + 50,00 por metro quadrado da construção
-    public ImovelCasa(float metroQuadrado, Contribuinte contribuinte){
+    private float metragemConstrucao;
+
+    public ImovelCasa(float metroQuadrado, float metragemConstrucao, Contribuinte contribuinte){
         super(metroQuadrado,contribuinte);
         setValorImovel(getValorImovel());
+        setMetragemConstrucao(metragemConstrucao);
+    }
+
+    public float getMetragemConstrucao() {
+        return metragemConstrucao;
+    }
+
+    public void setMetragemConstrucao(float metragemConstrucao) {
+        this.metragemConstrucao = metragemConstrucao;
     }
 
     @Override
     public float getValorImovel() {
-        return 30.0f * getMetroQuadrado() + 50.0f * getMetroQuadrado();
+        return (30.0f * getMetroQuadrado()) + (50.0f * getMetragemConstrucao());
     }
+
+    @Override
+    public String getDescricao(){
+        return "Casa - Terreno: " + getMetroQuadrado() + " m², Construção: " + metragemConstrucao + " m² - Valor: R$ " + getValorImovel();
+    }
+
 }

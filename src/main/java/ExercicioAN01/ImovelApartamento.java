@@ -26,4 +26,9 @@ public class ImovelApartamento extends Imoveis {
         v -= (((float) 10 / 100) * this.numAndares);
         return v;
     }
+
+    @Override
+    public String getDescricao(){
+        return "Apartamento - " + getMetroQuadrado() + " m², Andar: " + getNumAndares() + " - Valor: R$ " + getValorImovel();
+    }
 }

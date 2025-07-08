@@ -34,4 +34,6 @@ public abstract class Imoveis {
     public void setContribuinte(Contribuinte contribuinte) {
         this.contribuinte = contribuinte;
     }
+
+    public abstract String getDescricao();
 }
