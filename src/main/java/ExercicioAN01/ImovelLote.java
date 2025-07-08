@@ -1,8 +1,8 @@
 package ExercicioAN01;
 
-public class ImovelLote extends Imoveis{
-    public ImovelLote(float metroQuadrado, Contribuinte contribuinte){
-        super(metroQuadrado, contribuinte);
+public class ImovelLote extends Imovel {
+    public ImovelLote(float metroQuadrado){
+        super(metroQuadrado);
         setValorImovel(getValorImovel());
     }
 

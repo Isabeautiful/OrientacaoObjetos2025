@@ -1,13 +1,11 @@
 package ExercicioAN01;
 
-public abstract class Imoveis {
+public abstract class Imovel {
     private float metroQuadrado;
     private float valorImovel;
-    private Contribuinte contribuinte;
 
-    public Imoveis(float metroQuadrado, Contribuinte contribuinte){
+    public Imovel(float metroQuadrado){
         setMetroQuadrado(metroQuadrado);
-        setContribuinte(contribuinte);
         this.valorImovel = 0; //valor será calculado
     }
 
@@ -26,14 +24,6 @@ public abstract class Imoveis {
 
     public void setValorImovel(float valorImovel){
         this.valorImovel = valorImovel;
-    }
-
-    public Contribuinte getContribuinte() {
-        return this.contribuinte;
-    }
-
-    public void setContribuinte(Contribuinte contribuinte) {
-        this.contribuinte = contribuinte;
     }
 
     public abstract String getDescricao();

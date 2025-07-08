@@ -5,12 +5,14 @@ import java.util.ArrayList;
 public class Contribuinte {
     private String codigo;
     private String nome;
-    private ArrayList<Imoveis> imoveis;
+    private ArrayList<Imovel> imoveis;
+
+    //TODO: casos de teste
 
     public Contribuinte(String codigo, String nome){
         setCodigo(codigo);
         setNome(nome);
-        this.imoveis = new ArrayList<Imoveis>();
+        this.imoveis = new ArrayList<Imovel>();
     }
 
     public String getCodigo() {
@@ -35,18 +37,19 @@ public class Contribuinte {
         this.nome = nome;
     }
 
-    public ArrayList<Imoveis> getImoveis(){
+    public ArrayList<Imovel> getImoveis(){
         return imoveis;
     }
 
-    public void adicionarImovel(Imoveis imovel){
+    public void adicionarImovel(Imovel imovel){
         if(imovel == null) {
             throw new IllegalArgumentException("Erro: Imóvel não pode ser nulo");
         }
+        //TODO: se ele for o mesmo imovel, não adicionar
         this.imoveis.add(imovel);
     }
 
-    public void removerImovel(Imoveis imovel){
+    public void removerImovel(Imovel imovel){
         if(imovel == null) {
             throw new IllegalArgumentException("Erro: Imóvel não pode ser nulo");
         }
@@ -58,17 +61,32 @@ public class Contribuinte {
 
     public float calcularTotalIPTU(){
         float total = 0;
-        for(Imoveis imovel: imoveis){
+        for(Imovel imovel: imoveis){
             total += imovel.getValorImovel();
         }
         return total;
     }
 
+    //Busca de imoveis por cliente
     public ArrayList<String> listarImoveis() {
         ArrayList<String> descricoes = new ArrayList<>();
-        for (Imoveis imovel : imoveis) {
+        for (Imovel imovel : imoveis) {
             descricoes.add(imovel.getDescricao());
         }
         return descricoes;
     }
+
+    public int getNumeroImoveis() {
+        return imoveis.size();
+    }
+
+    public boolean buscarImovel(Imovel imovel){
+        for(Imovel i: imoveis){
+            if(i == imovel){
+                return  true;
+            }
+        }
+        return false;
+    }
+    //TODO: consulta com os valores de cada imovel?
 }

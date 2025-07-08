@@ -1,10 +1,10 @@
 package ExercicioAN01;
 
-public class ImovelCasa extends Imoveis{
+public class ImovelCasa extends Imovel {
     private float metragemConstrucao;
 
-    public ImovelCasa(float metroQuadrado, float metragemConstrucao, Contribuinte contribuinte){
-        super(metroQuadrado,contribuinte);
+    public ImovelCasa(float metroQuadrado, float metragemConstrucao){
+        super(metroQuadrado);
         setValorImovel(getValorImovel());
         setMetragemConstrucao(metragemConstrucao);
     }

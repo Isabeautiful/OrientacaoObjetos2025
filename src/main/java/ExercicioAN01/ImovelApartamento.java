@@ -1,9 +1,9 @@
 package ExercicioAN01;
 
-public class ImovelApartamento extends Imoveis {
+public class ImovelApartamento extends Imovel {
     int numAndares;
-    public ImovelApartamento(float metroQuadrado, Contribuinte contribuinte, int numAndares){
-        super(metroQuadrado, contribuinte);
+    public ImovelApartamento(float metroQuadrado, int numAndares){
+        super(metroQuadrado);
         setNumAndares(numAndares);
         setValorImovel(getValorImovel());
     }
