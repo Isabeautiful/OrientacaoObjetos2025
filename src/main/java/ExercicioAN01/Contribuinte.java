@@ -58,9 +58,11 @@ public class Contribuinte {
         return total;
     }
 
-    public void listarImoveis(){
-        for(Imoveis imovel: imoveis){
-            imovel.getDescricao();
+    public ArrayList<String> listarImoveis() {
+        ArrayList<String> descricoes = new ArrayList<>();
+        for (Imoveis imovel : imoveis) {
+            descricoes.add(imovel.getDescricao());
         }
+        return descricoes;
     }
 }
