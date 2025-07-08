@@ -2,7 +2,6 @@ package ExercicioAN01;
 
 public class ImovelApartamento extends Imoveis {
     int numAndares;
-    //Valor do Imovel: 40,00 por metro quadrado da construção - 10% para cada andar acima do terreo
     public ImovelApartamento(float metroQuadrado, Contribuinte contribuinte, int numAndares){
         super(metroQuadrado, contribuinte);
         setNumAndares(numAndares);

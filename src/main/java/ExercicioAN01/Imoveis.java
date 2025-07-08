@@ -5,8 +5,6 @@ public abstract class Imoveis {
     private float valorImovel;
     private Contribuinte contribuinte;
 
-    //TODO: metro quadrado construcao?
-
     public Imoveis(float metroQuadrado, Contribuinte contribuinte){
         setMetroQuadrado(metroQuadrado);
         setContribuinte(contribuinte);
@@ -18,6 +16,9 @@ public abstract class Imoveis {
     }
 
     public void setMetroQuadrado(float metroQuadrado) {
+        if (metroQuadrado <= 0) {
+            throw new IllegalArgumentException("Erro: O metro quadrado não pode ser zero ou negativo.");
+        }
         this.metroQuadrado = metroQuadrado;
     }
 

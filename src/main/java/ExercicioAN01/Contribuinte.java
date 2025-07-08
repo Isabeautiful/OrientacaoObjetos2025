@@ -7,9 +7,6 @@ public class Contribuinte {
     private String nome;
     private ArrayList<Imoveis> imoveis;
 
-    //TODO: consulta de imoveis por contribuinte
-    //TODO: consulta com os valores de cada imovel
-
     public Contribuinte(String codigo, String nome){
         setCodigo(codigo);
         setNome(nome);
@@ -43,10 +40,19 @@ public class Contribuinte {
     }
 
     public void adicionarImovel(Imoveis imovel){
+        if(imovel == null) {
+            throw new IllegalArgumentException("Erro: Imóvel não pode ser nulo");
+        }
         this.imoveis.add(imovel);
     }
 
     public void removerImovel(Imoveis imovel){
+        if(imovel == null) {
+            throw new IllegalArgumentException("Erro: Imóvel não pode ser nulo");
+        }
+        if (!this.imoveis.contains(imovel)) {
+            throw new IllegalArgumentException("Erro: Imóvel não encontrado na lista");
+        }
         this.imoveis.remove(imovel);
     }
 

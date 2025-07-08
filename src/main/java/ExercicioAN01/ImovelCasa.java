@@ -1,7 +1,6 @@
 package ExercicioAN01;
 
 public class ImovelCasa extends Imoveis{
-    //Valor do imovel: 30,00 por metro quadrado + 50,00 por metro quadrado da construção
     private float metragemConstrucao;
 
     public ImovelCasa(float metroQuadrado, float metragemConstrucao, Contribuinte contribuinte){
