@@ -3,50 +3,54 @@ package ExercicioAN03;
 import java.util.ArrayList;
 
 public class Hospede {
-
-    private int codigo;
+    private String codigo;
     private String nome;
     private ArrayList<Reserva> reservas;
 
-    public Hospede(int codigo, String nome) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.reservas = new ArrayList<Reserva>();
+    public Hospede(String codigo, String nome){
+        setCodigo(codigo);
+        setNome(nome);
+        this.reservas = new ArrayList<>();
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        if(codigo.trim().isEmpty()){
+            throw new IllegalArgumentException("Erro");
+        }
+        this.codigo = codigo;
     }
 
     public String getNome() {
         return nome;
     }
 
+    public void setNome(String nome) {
+        if(nome.trim().isEmpty()){
+            throw new IllegalArgumentException("Erro");
+        }
+        this.nome = nome;
+    }
+
     public ArrayList<Reserva> getReservas() {
         return reservas;
     }
 
-    public void adicionarReserva(Reserva reserva) {
+    public void adicionarReserva(Reserva reserva){
+        if(reserva == null){
+            throw new IllegalArgumentException("Erro");
+        }
         this.reservas.add(reserva);
     }
 
-    public void removerReserva(Reserva reserva) {
-        this.reservas.remove(reserva);
-    }
-
-    public ArrayList<String> listarReservas() {
-        ArrayList<String> lista = new ArrayList<>();
-        for (Reserva reserva : reservas) {
-            //lista.add(reserva.getDescricao());
+    public String listarReservas(){
+        StringBuilder sb = new StringBuilder();
+        for(Reserva reserva: reservas){
+            sb.append(reserva.getDescricao()).append(", ");
         }
-        return lista;
-    }
-
-    public ArrayList<Float> listarValoresReservas() {
-        ArrayList<Float> valores = new ArrayList<>();
-        for (Reserva reserva : reservas) {
-            //valores.add(reserva.calcularValor());
-        }
-        return valores;
+        return sb.toString();
     }
 }
