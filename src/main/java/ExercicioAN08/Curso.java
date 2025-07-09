@@ -9,10 +9,10 @@ public class Curso {
     private ArrayList<Aluno> alunos;
 
     public Curso(String codigo, String descricao, int cargaHoraria) {
-        this.codigo = codigo;
-        this.descricao = descricao;
-        this.cargaHoraria = cargaHoraria;
-        this.alunos = new ArrayList<Aluno>();
+        setCodigo(codigo);
+        setDescricao(descricao);
+        setCargaHoraria(cargaHoraria);
+        this.alunos = new ArrayList<>();
     }
 
     public String getCodigo() {
@@ -20,6 +20,9 @@ public class Curso {
     }
 
     public void setCodigo(String codigo) {
+        if (codigo == null || codigo.trim().isEmpty()) {
+            throw new IllegalArgumentException("Erro: Código inválido, string vazia");
+        }
         this.codigo = codigo;
     }
 
@@ -28,6 +31,9 @@ public class Curso {
     }
 
     public void setDescricao(String descricao) {
+        if (descricao == null || descricao.trim().isEmpty()) {
+            throw new IllegalArgumentException("Erro: Descrição inválida, string vazia");
+        }
         this.descricao = descricao;
     }
 
@@ -36,6 +42,9 @@ public class Curso {
     }
 
     public void setCargaHoraria(int cargaHoraria) {
+        if (cargaHoraria <= 0) {
+            throw new IllegalArgumentException("Erro: Carga horária deve ser maior que zero");
+        }
         this.cargaHoraria = cargaHoraria;
     }
 
@@ -44,6 +53,35 @@ public class Curso {
     }
 
     public void addAluno(Aluno aluno) {
+        if (aluno == null) {
+            throw new IllegalArgumentException("Erro: Aluno não pode ser nulo");
+        }
         this.alunos.add(aluno);
+    }
+
+    public void removerAluno(Aluno aluno) {
+        if (aluno == null) {
+            throw new IllegalArgumentException("Erro: Aluno não pode ser nulo");
+        }
+        if (!alunos.contains(aluno)) {
+            throw new IllegalArgumentException("Erro: Aluno não encontrado na lista");
+        }
+        alunos.remove(aluno);
+    }
+
+    public boolean buscarAluno(Aluno aluno) {
+        return alunos.contains(aluno);
+    }
+
+    public int getNumeroAlunos() {
+        return alunos.size();
+    }
+
+    public String listarAlunos() {
+        StringBuilder sb = new StringBuilder();
+        for (Aluno aluno : alunos) {
+            sb.append(aluno.getNome()).append(" - ").append(aluno.getMatricula()).append(", ");
+        }
+        return sb.toString();
     }
 }

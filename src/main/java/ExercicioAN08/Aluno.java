@@ -4,13 +4,11 @@ public abstract class Aluno {
     private String matricula;
     private String nome;
     private String endereco;
-    private Curso curso;
 
-    public Aluno(String matricula, String nome, String endereco, Curso curso) {
-        this.matricula = matricula;
-        this.nome = nome;
-        this.endereco = endereco;
-        this.curso = curso;
+    public Aluno(String matricula, String nome, String endereco) {
+        setMatricula(matricula);
+        setNome(nome);
+        setEndereco(endereco);
     }
 
     public String getMatricula() {
@@ -18,6 +16,9 @@ public abstract class Aluno {
     }
 
     public void setMatricula(String matricula) {
+        if (matricula == null || matricula.trim().isEmpty()) {
+            throw new IllegalArgumentException("Erro: Matrícula inválida, string vazia");
+        }
         this.matricula = matricula;
     }
 
@@ -26,6 +27,9 @@ public abstract class Aluno {
     }
 
     public void setNome(String nome) {
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Erro: Nome inválido, string vazia");
+        }
         this.nome = nome;
     }
 
@@ -34,15 +38,10 @@ public abstract class Aluno {
     }
 
     public void setEndereco(String endereco) {
+        if (endereco == null || endereco.trim().isEmpty()) {
+            throw new IllegalArgumentException("Erro: Endereço inválido, string vazia");
+        }
         this.endereco = endereco;
-    }
-
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
     }
 
     public abstract float calcularMensalidade();
