@@ -5,7 +5,7 @@ public class FitaLancamento extends Fita {
 
     public FitaLancamento(int numDias, float valorDia) {
         super(numDias);
-        this.valorDia = valorDia;
+        setValorDia(valorDia);
     }
 
     public float getValorDia() {
@@ -13,11 +13,14 @@ public class FitaLancamento extends Fita {
     }
 
     public void setValorDia(float valorDia) {
+        if (valorDia <= 0) {
+            throw new IllegalArgumentException("Erro: Valor por dia deve ser maior que zero.");
+        }
         this.valorDia = valorDia;
     }
 
     @Override
     public float calcularValor() {
-        return valorDia * numDias;
+        return getValorDia() * getNumDias();
     }
 }

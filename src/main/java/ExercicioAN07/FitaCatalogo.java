@@ -8,6 +8,6 @@ public class FitaCatalogo extends Fita {
 
     @Override
     public float calcularValor() {
-        return 5.0f * numDias; // R$ 5,00 por dia
+        return 5.0f * getNumDias(); // R$ 5,00 por dia
     }
 }

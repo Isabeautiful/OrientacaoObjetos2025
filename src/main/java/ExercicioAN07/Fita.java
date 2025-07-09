@@ -1,10 +1,10 @@
 package ExercicioAN07;
 
 public abstract class Fita {
-    protected int numDias;
+    private int numDias;
 
     public Fita(int numDias) {
-        this.numDias = numDias;
+        setNumDias(numDias);
     }
 
     public int getNumDias() {
@@ -12,6 +12,9 @@ public abstract class Fita {
     }
 
     public void setNumDias(int numDias) {
+        if (numDias <= 0) {
+            throw new IllegalArgumentException("Erro: Número de dias deve ser maior que zero.");
+        }
         this.numDias = numDias;
     }
 

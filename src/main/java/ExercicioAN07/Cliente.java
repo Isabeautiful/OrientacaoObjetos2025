@@ -46,6 +46,16 @@ public class Cliente {
         this.emprestimos.add(emprestimo);
     }
 
+    public void removerEmprestimo(Emprestimo emprestimo) {
+        if (emprestimo == null) {
+            throw new IllegalArgumentException("Erro: Empréstimo não pode ser nulo.");
+        }
+        if (!emprestimos.contains(emprestimo)) {
+            throw new IllegalArgumentException("Erro: Empréstimo não encontrado na lista.");
+        }
+        emprestimos.remove(emprestimo);
+    }
+
     public float calcularTotalEmprestimos() {
         float total = 0;
         for (Emprestimo emprestimo : emprestimos) {
@@ -53,4 +63,21 @@ public class Cliente {
         }
         return total;
     }
+
+    public String listarEmprestimos() {
+        StringBuilder sb = new StringBuilder();
+        for (Emprestimo emprestimo : emprestimos) {
+            sb.append(emprestimo.getDescricao()).append(", ");
+        }
+        return sb.toString();
+    }
+
+    public int getNumeroEmprestimos() {
+        return emprestimos.size();
+    }
+
+    public boolean buscarEmprestimo(Emprestimo emprestimo) {
+        return emprestimos.contains(emprestimo);
+    }
+
 }
