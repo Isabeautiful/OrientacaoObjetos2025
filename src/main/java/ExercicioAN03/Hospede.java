@@ -18,8 +18,8 @@ public class Hospede {
     }
 
     public void setCodigo(String codigo) {
-        if(codigo.trim().isEmpty()){
-            throw new IllegalArgumentException("Erro");
+        if(codigo == null || codigo.trim().isEmpty()){
+            throw new IllegalArgumentException("Erro: Código inválido, string vazia");
         }
         this.codigo = codigo;
     }
@@ -29,8 +29,8 @@ public class Hospede {
     }
 
     public void setNome(String nome) {
-        if(nome.trim().isEmpty()){
-            throw new IllegalArgumentException("Erro");
+        if(nome == null || nome.trim().isEmpty()){
+            throw new IllegalArgumentException("Erro: Nome inválido, string vazia");
         }
         this.nome = nome;
     }
@@ -41,9 +41,27 @@ public class Hospede {
 
     public void adicionarReserva(Reserva reserva){
         if(reserva == null){
-            throw new IllegalArgumentException("Erro");
+            throw new IllegalArgumentException("Erro: Reserva não pode ser nula");
         }
         this.reservas.add(reserva);
+    }
+
+    public void removerReserva(Reserva reserva){
+        if(reserva == null){
+            throw new IllegalArgumentException("Erro: Reserva não pode ser nula");
+        }
+        if (!this.reservas.contains(reserva)) {
+            throw new IllegalArgumentException("Erro: Reserva não encontrada na lista");
+        }
+        this.reservas.remove(reserva);
+    }
+
+    public float calcularTotalReserva(){
+        float total = 0;
+        for(Reserva reserva: reservas){
+            total += reserva.calcularTotal();
+        }
+        return total;
     }
 
     public String listarReservas(){
@@ -52,5 +70,18 @@ public class Hospede {
             sb.append(reserva.getDescricao()).append(", ");
         }
         return sb.toString();
+    }
+
+    public int getNumeroReservas() {
+        return reservas.size();
+    }
+
+    public boolean buscarReserva(Reserva reserva){
+        for(Reserva r: reservas){
+            if(r == reserva){
+                return true;
+            }
+        }
+        return false;
     }
 }
