@@ -9,6 +9,64 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ContribuinteTest {
 
+    @Test
+    void deveLancarExcecaoCodigoInvalido(){
+        try{
+            Contribuinte contribuinte = new Contribuinte("", "João");
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Erro: Codigo invalido, string vazia", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveLancarExcecaoNomeInvalido(){
+        try{
+            Contribuinte contribuinte = new Contribuinte("111", "");
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Erro: Nome invalido, string vazia", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveLancarExcecaoAdicionarImovelInvalido(){
+        try{
+            Contribuinte contribuinte = new Contribuinte("111", "João");
+            contribuinte.adicionarImovel(null);
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Erro: Imóvel não pode ser nulo", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveLancarExcecaoRemoverImovelInvalido(){
+        try{
+            Contribuinte contribuinte = new Contribuinte("111", "João");
+            contribuinte.removerImovel(null);
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Erro: Imóvel não pode ser nulo", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveLancarExcecaoRemoverImovelNaoExistente(){
+        try{
+            Contribuinte contribuinte = new Contribuinte("111", "João");
+            contribuinte.removerImovel(new ImovelLote(1));
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Erro: Imóvel não encontrado na lista", e.getMessage());
+        }
+    }
+
     // Testes exemplos do professor
 
     @Test

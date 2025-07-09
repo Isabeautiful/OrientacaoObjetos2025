@@ -7,8 +7,6 @@ public class Contribuinte {
     private String nome;
     private ArrayList<Imovel> imoveis;
 
-    //TODO: casos de teste
-
     public Contribuinte(String codigo, String nome){
         setCodigo(codigo);
         setNome(nome);
@@ -31,7 +29,7 @@ public class Contribuinte {
     }
 
     public void setNome(String nome) {
-        if(codigo.trim().isEmpty()){
+        if(nome.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: Nome invalido, string vazia");
         }
         this.nome = nome;
@@ -45,7 +43,6 @@ public class Contribuinte {
         if(imovel == null) {
             throw new IllegalArgumentException("Erro: Imóvel não pode ser nulo");
         }
-        //TODO: se ele for o mesmo imovel, não adicionar
         this.imoveis.add(imovel);
     }
 

@@ -14,6 +14,9 @@ public class ImovelCasa extends Imovel {
     }
 
     public void setMetragemConstrucao(float metragemConstrucao) {
+        if(metragemConstrucao < 0){
+            throw new IllegalArgumentException("Erro: metragem construcao nao pode ser negativo");
+        }
         this.metragemConstrucao = metragemConstrucao;
     }
 
