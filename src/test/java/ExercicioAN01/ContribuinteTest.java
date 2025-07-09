@@ -67,6 +67,19 @@ class ContribuinteTest {
         }
     }
 
+    @Test
+    void listarImoveisDoContribuinte(){
+        Contribuinte contribuinte = new Contribuinte("111", "João");
+        Imovel imovel = new ImovelLote(1);
+        Imovel imovel1 = new ImovelLote(2);
+
+        contribuinte.adicionarImovel(imovel);
+        contribuinte.adicionarImovel(imovel1);
+
+        assertEquals("Lote - 1.0 m² - Valor: R$ 30.0, Lote - 2.0 m² - Valor: R$ 60.0, ", contribuinte.listarImoveis());
+
+    }
+
     // Testes exemplos do professor
 
     @Test

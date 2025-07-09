@@ -64,13 +64,12 @@ public class Contribuinte {
         return total;
     }
 
-    //Busca de imoveis por cliente
-    public ArrayList<String> listarImoveis() {
-        ArrayList<String> descricoes = new ArrayList<>();
+   public String listarImoveis() {
+        StringBuilder descricoes = new StringBuilder();
         for (Imovel imovel : imoveis) {
-            descricoes.add(imovel.getDescricao());
+            descricoes.append(imovel.getDescricao()).append(", ");
         }
-        return descricoes;
+        return descricoes.toString();
     }
 
     public int getNumeroImoveis() {
@@ -85,5 +84,4 @@ public class Contribuinte {
         }
         return false;
     }
-    //TODO: consulta com os valores de cada imovel?
 }
