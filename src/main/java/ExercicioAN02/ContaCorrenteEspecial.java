@@ -5,7 +5,7 @@ public class ContaCorrenteEspecial extends ContasBancaria {
     private float limiteCredito;
 
     public ContaCorrenteEspecial(Cliente cliente, float saldo, int numeroConta, int limiteCredito){
-        super(cliente, saldo, numeroConta);
+        super(saldo, numeroConta);
         setLimiteCredito(limiteCredito);
     }
 
@@ -15,5 +15,9 @@ public class ContaCorrenteEspecial extends ContasBancaria {
 
     public void setLimiteCredito(float limiteCredito) {
         this.limiteCredito = limiteCredito;
+    }
+
+    public String getDescricao(){
+        return "Conta Corrente Especial - " + getSaldo() + getLimiteCredito();
     }
 }

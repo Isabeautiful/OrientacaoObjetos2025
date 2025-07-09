@@ -1,25 +1,12 @@
 package ExercicioAN02;
 
-public class ContasBancaria {
-    private Cliente cliente;
+public abstract class ContasBancaria {
     float saldo;
     private int numeroConta;
 
-    public ContasBancaria(Cliente cliente, float saldo, int numeroConta){
-        setCliente(cliente);
+    public ContasBancaria( float saldo, int numeroConta){
         setSaldo(saldo);
         setNumeroConta(numeroConta); //tem como gerar esse numero?
-    }
-
-    public Cliente getCliente() {
-        return this.cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        if(cliente == null){
-            throw new IllegalArgumentException("Erro: Argumento cliente não pode ser nulo");
-        }
-        this.cliente = cliente;
     }
 
     public float getSaldo() {
@@ -40,4 +27,6 @@ public class ContasBancaria {
         }
         this.numeroConta = numeroConta;
     }
+
+    public abstract String getDescricao();
 }

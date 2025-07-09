@@ -7,7 +7,11 @@ public class Cliente {
     private String nome;
     private ArrayList<ContasBancaria> contasBancarias;
 
-    //TODO: Consultas de contas por cliente e consulta com os saldos de cada conta
+    public Cliente(String codigo, String nome){
+        setCodigo(codigo);
+        setNome(nome);
+        this.contasBancarias = new ArrayList<ContasBancaria>();
+    }
 
     public String getCodigo() {
         return this.codigo;
@@ -25,7 +29,7 @@ public class Cliente {
     }
 
     public void setNome(String nome) {
-        if(codigo.trim().isEmpty()){
+        if(nome.trim().isEmpty()){
             throw new IllegalArgumentException("Erro: Nome invalido, string vazia");
         }
         this.nome = nome;
@@ -55,7 +59,7 @@ public class Cliente {
     public String listarContas(){
         StringBuilder listagemContas = new StringBuilder();
         for (ContasBancaria contasBancaria: contasBancarias){
-            //listagemContas.append(contasBancaria.getDescricao()).append(", ");
+            listagemContas.append(contasBancaria.getDescricao()).append(", ");
         }
         return listagemContas.toString();
     }
@@ -71,5 +75,13 @@ public class Cliente {
             }
         }
         return false;
+    }
+
+    public float calcularSaldoTotal() {
+        float total = 0;
+        for (ContasBancaria conta : contasBancarias) {
+            total += conta.getSaldo();
+        }
+        return total;
     }
 }

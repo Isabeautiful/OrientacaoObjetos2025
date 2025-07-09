@@ -1,8 +1,11 @@
 package ExercicioAN02;
 
 public class ContaCorrenteNormal extends ContasBancaria {
-    //informar saldo
     public ContaCorrenteNormal(Cliente cliente, float saldo, int numeroConta){
-        super(cliente, saldo, numeroConta);
+        super(saldo, numeroConta);
+    }
+
+    public String getDescricao(){
+        return "Conta Corrente Normal - " + getSaldo();
     }
 }
