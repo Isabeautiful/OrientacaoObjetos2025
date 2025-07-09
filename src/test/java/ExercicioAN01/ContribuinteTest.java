@@ -113,8 +113,13 @@ class ContribuinteTest {
         Imovel imovel2 = new ImovelCasa(1,1);
         Imovel imovel3 = new ImovelApartamento(1,1);
 
-        //TODO: checar se esse valor ta certo
-        assertEquals(0, contribuinte.calcularTotalIPTU());
+        contribuinte.adicionarImovel(imovel);
+        contribuinte.adicionarImovel(imovel2);
+        contribuinte.adicionarImovel(imovel3);
+
+        float valorEsperado = 30.0f + 80.0f + 36.0f;
+
+        assertEquals(valorEsperado, contribuinte.calcularTotalIPTU());
     }
 
     @Test

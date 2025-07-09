@@ -21,9 +21,9 @@ public class ImovelApartamento extends Imovel {
 
     @Override
     public float getValorImovel() {
-        float v = (40.0f * getMetroQuadrado());
-        v -= (((float) 10 / 100) * this.numAndares);
-        return v;
+        float valorBase = 40.0f * getMetroQuadrado();
+        float desconto = valorBase * (0.10f * getNumAndares());
+        return valorBase - desconto;
     }
 
     @Override

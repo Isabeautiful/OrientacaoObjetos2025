@@ -7,7 +7,6 @@ public class Cliente {
     private String nome;
     private ArrayList<ContasBancaria> contasBancarias;
 
-    //TODO: ArrayList get set? consultas?
     //TODO: Consultas de contas por cliente e consulta com os saldos de cada conta
 
     public String getCodigo() {
@@ -30,5 +29,47 @@ public class Cliente {
             throw new IllegalArgumentException("Erro: Nome invalido, string vazia");
         }
         this.nome = nome;
+    }
+
+    public ArrayList<ContasBancaria> getContasBancarias(){
+        return contasBancarias;
+    }
+
+    public void adicionarContaBancaria(ContasBancaria contasBancaria){
+        if(contasBancaria == null){
+            throw new IllegalArgumentException("Erro: conta bancaria nao pode ser nula");
+        }
+        this.contasBancarias.add(contasBancaria);
+    }
+
+    public void removerContaBancaria(ContasBancaria contasBancaria){
+        if(contasBancaria == null){
+            throw  new IllegalArgumentException("Erro: Conta bancaria nao pode ser nula");
+        }
+        if(!this.contasBancarias.contains(contasBancaria)){
+            throw new IllegalArgumentException("Erro: Conta bancaria nao encontrada na lista");
+        }
+        this.contasBancarias.remove(contasBancaria);
+    }
+
+    public String listarContas(){
+        StringBuilder listagemContas = new StringBuilder();
+        for (ContasBancaria contasBancaria: contasBancarias){
+            //listagemContas.append(contasBancaria.getDescricao()).append(", ");
+        }
+        return listagemContas.toString();
+    }
+
+    public int getNumeroContas(){
+        return contasBancarias.size();
+    }
+
+    public boolean buscarConta(ContasBancaria contasBancaria){
+        for(ContasBancaria c : contasBancarias){
+            if(c == contasBancaria){
+                return true;
+            }
+        }
+        return false;
     }
 }
