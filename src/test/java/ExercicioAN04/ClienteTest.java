@@ -1,4 +1,4 @@
-package ExercicioAN05;
+package ExercicioAN04;
 
 import ExercicioAN01.*;
 import org.junit.jupiter.api.Test;
