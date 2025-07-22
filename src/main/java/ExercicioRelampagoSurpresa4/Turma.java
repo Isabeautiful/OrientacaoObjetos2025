@@ -5,6 +5,22 @@ import java.util.ArrayList;
 public class Turma {
     private Professor professor;
     private ArrayList<Aluno> alunos;
+    Disciplina disciplina;
+
+    public Disciplina getDisciplina() {
+        return this.disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        if(this.disciplina == null){
+            throw new IllegalArgumentException("Erro: disciplina nao pode ser nula");
+        }
+        this.disciplina = disciplina;
+    }
+
+    public String getNomeDisciplina(){
+        return this.disciplina.getNome();
+    }
 
     public Professor getProfessor() {
         return this.professor;
@@ -48,9 +64,14 @@ public class Turma {
     public String listarAlunos(){
         StringBuilder nomesAlunos = new StringBuilder();
         for(Aluno aluno: this.alunos){
-            //TODO: arrumar isso daqui q ele reclamou na lista
             nomesAlunos.append(aluno.getNome()).append(", ");
         }
+
+        // Remove a última vírgula e espaço, se houver alunos
+        if (!nomesAlunos.isEmpty()) {
+            nomesAlunos.setLength(nomesAlunos.length() - 2);
+        }
+
         return nomesAlunos.toString();
     }
 
