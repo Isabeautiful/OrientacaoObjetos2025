@@ -70,7 +70,6 @@ public class Curso {
             nomeProfessores.append(turma.getNomeProfessor()).append(", ");
         }
 
-        // Remove a última vírgula e espaço, se houver alunos
         if (!nomeProfessores.isEmpty()) {
             nomeProfessores.setLength(nomeProfessores.length() - 2);
         }
@@ -86,7 +85,7 @@ public class Curso {
         }
 
         if (!nomesDisciplinas.isEmpty()) {
-            nomesDisciplinas.setLength(nomesDisciplinas.length() - 2); // Remove última vírgula
+            nomesDisciplinas.setLength(nomesDisciplinas.length() - 2);
         }
 
         return nomesDisciplinas.toString();
@@ -102,14 +101,12 @@ public class Curso {
             }
         }
 
-        // Remove a última vírgula e espaço, se houver alunos
         if (!nomeAlunos.isEmpty()) {
             nomeAlunos.setLength(nomeAlunos.length() - 2);
         }
 
         return nomeAlunos.toString();
     }
-
 
     //Questão 8: Verificar se um aluno está em um curso
     public boolean verificarAlunoCurso(Aluno aluno){
@@ -128,7 +125,6 @@ public class Curso {
             nomeAlunos.append(aluno.getNome()).append(", ");
         }
 
-        // Remove a última vírgula e espaço, se houver alunos
         if (!nomeAlunos.isEmpty()) {
             nomeAlunos.setLength(nomeAlunos.length() - 2);
         }
