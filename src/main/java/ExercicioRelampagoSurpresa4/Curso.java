@@ -6,6 +6,11 @@ public class Curso {
     ArrayList<Turma> turmas;
     ArrayList<Aluno> alunos;
 
+    public Curso(){
+        this.alunos = new ArrayList<Aluno>();
+        this.turmas = new ArrayList<Turma>();
+    }
+
     public ArrayList<Turma> getTurmas() {
         return this.turmas;
     }

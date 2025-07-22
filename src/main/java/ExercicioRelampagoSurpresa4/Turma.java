@@ -7,12 +7,16 @@ public class Turma {
     private ArrayList<Aluno> alunos;
     Disciplina disciplina;
 
+    public Turma(){
+        this.alunos = new ArrayList<Aluno>();
+    }
+
     public Disciplina getDisciplina() {
         return this.disciplina;
     }
 
     public void setDisciplina(Disciplina disciplina) {
-        if(this.disciplina == null){
+        if(disciplina == null){
             throw new IllegalArgumentException("Erro: disciplina nao pode ser nula");
         }
         this.disciplina = disciplina;
@@ -55,7 +59,7 @@ public class Turma {
     //Questão 1: Qual o nome de um professor de uma turma?
     public String getNomeProfessor(){
         if(this.professor == null){
-            return "Truma sem professor";
+            return "Turma sem professor";
         }
         return this.professor.getNome();
     }
@@ -83,6 +87,4 @@ public class Turma {
     public int getNumeroAlunos(){
         return this.alunos.size();
     }
-
-    //
 }
