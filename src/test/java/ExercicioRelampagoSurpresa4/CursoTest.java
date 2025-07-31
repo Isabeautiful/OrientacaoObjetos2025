@@ -2,6 +2,9 @@ package ExercicioRelampagoSurpresa4;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CursoTest {
@@ -151,19 +154,22 @@ class CursoTest {
     }
 
     @Test
-    void deveListarAlunosTurmaCurso() {
-        Curso curso = new Curso();
-        Turma turma = new Turma();
-
-        Aluno aluno1 = new Aluno("João");
+    void deveRetornarNomesAlunos() {
+        Aluno aluno1 = new Aluno("Joao");
         Aluno aluno2 = new Aluno("Ana");
-
-        turma.adicionarAluno(aluno1);
-        turma.adicionarAluno(aluno2);
-
-        curso.adicionarTurma(turma);
-
-        assertEquals("João, Ana", curso.listarAlunosTurmaCurso());
+        Aluno aluno3 = new Aluno("Jose");
+        Aluno aluno4 = new Aluno("Beatriz");
+        Turma turma1 = new Turma();
+        Turma turma2 = new Turma();
+        turma1.adicionarAluno(aluno1);
+        turma1.adicionarAluno(aluno2);
+        turma2.adicionarAluno(aluno3);
+        turma2.adicionarAluno(aluno4);
+        Curso curso = new Curso();
+        curso.adicionarTurma(turma1);
+        curso.adicionarTurma(turma2);
+        List<String> resultado = Arrays.asList("Joao", "Ana", "Jose", "Beatriz");
+        assertEquals(resultado, curso.listarAlunosTurmaCurso());
     }
 
     @Test

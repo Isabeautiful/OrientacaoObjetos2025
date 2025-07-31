@@ -1,6 +1,7 @@
 package ExercicioRelampagoSurpresa4;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Curso {
     ArrayList<Turma> turmas;
@@ -92,21 +93,18 @@ public class Curso {
     }
 
     //Questão 4: Quais os nomes dos alunos que estão em alguma turma de um curso?
-    public String listarAlunosTurmaCurso() {
-        StringBuilder nomeAlunos = new StringBuilder();
+    public ArrayList<String> listarAlunosTurmaCurso() {
+        ArrayList<String> resultado = new ArrayList<String>();
 
         for (Turma turma : this.turmas) {
             for (Aluno aluno : turma.getAlunos()) {
-                nomeAlunos.append(aluno.getNome()).append(", ");
+                resultado.add(aluno.getNome());
             }
         }
 
-        if (!nomeAlunos.isEmpty()) {
-            nomeAlunos.setLength(nomeAlunos.length() - 2);
-        }
-
-        return nomeAlunos.toString();
+        return resultado;
     }
+
 
     //Questão 8: Verificar se um aluno está em um curso
     public boolean verificarAlunoCurso(Aluno aluno){

@@ -42,6 +42,9 @@ public class Turma {
         if(aluno == null){
             throw new IllegalArgumentException("Erro: aluno invalido");
         }
+        if(this.alunos.contains(aluno)){
+            throw new IllegalArgumentException("Erro: Aluno já encontrado na lista");
+        }
         this.alunos.add(aluno);
     }
 
@@ -65,18 +68,12 @@ public class Turma {
     }
 
     //Questão 2:Quais os nomes de todos os alunos de uma turma?
-    public String listarAlunos(){
-        StringBuilder nomesAlunos = new StringBuilder();
-        for(Aluno aluno: this.alunos){
-            nomesAlunos.append(aluno.getNome()).append(", ");
+    public ArrayList<String> listarAlunos(){
+        ArrayList<String> resultado = new ArrayList<String>();
+        for (Aluno aluno : this.alunos) {
+            resultado.add(aluno.getNome());
         }
-
-        // Remove a última vírgula e espaço, se houver alunos
-        if (!nomesAlunos.isEmpty()) {
-            nomesAlunos.setLength(nomesAlunos.length() - 2);
-        }
-
-        return nomesAlunos.toString();
+        return resultado;
     }
 
     //Questão 7: verificar se um aluno está em uma turma
