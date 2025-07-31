@@ -31,6 +31,9 @@ public class Curso {
         if(turma == null){
             throw new IllegalArgumentException("Erro: turma não pode ser nula");
         }
+        if(this.turmas.contains(turma)){
+            throw new IllegalArgumentException("Erro: turma ja encontrada");
+        }
         this.turmas.add(turma);
     }
 
